@@ -46,5 +46,5 @@ jobs:
           secret_key: ${{ secrets.PMW_S3_SECRET_KEY }}
       - name: replace version
         run: |
-          s3cmd del -r ${{ secrets.PMW_S3_WEB_URL }}
-          s3cmd sync --recursive --acl-public web ${{ secrets.PMW_S3_WEB_URL }}
+          s3cmd del -r ${{ secrets.PMW_S3_BASE_URL }}/web
+          s3cmd sync --recursive --acl-public web ${{ secrets.PMW_S3_BASE_URL }}
