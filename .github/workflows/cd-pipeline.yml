@@ -32,3 +32,15 @@ jobs:
           generate_release_notes: true
           tag_name: ${{ steps.tag_version.outputs.TAG_VERSION }}
           files: ${{ steps.export.outputs.archive_directory }}/*
+
+      - name: set up S3cmd cli tool
+        uses: s3-actions/s3cmd@v1.2.0
+        with:
+          provider: linode
+          region: 'eu-central-1'
+          access_key: ${{ secrets.PMW_S3_ACCESS_KEY }}
+          secret_key: ${{ secrets.PMW_S3_SECRET_KEY }}
+      - name: replace version
+        run: |
+          s3cmd del -r ${{ secrets.PMW_S3_WEB_URL }}
+          s3cmd sync --recursive --acl-public ${{ steps.export.outputs.archive_directory }} ${{ secrets.PMW_S3_WEB_URL }}
