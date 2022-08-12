@@ -1,7 +1,9 @@
 name: cd-pipeline
-
-on: push
-
+on:
+  push:
+    # Pattern matched against refs/tags
+    tags:        
+      - '**'
 jobs:
   export-game:
     runs-on: ubuntu-latest
