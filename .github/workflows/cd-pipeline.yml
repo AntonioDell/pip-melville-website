@@ -34,7 +34,9 @@ jobs:
           generate_release_notes: true
           tag_name: ${{ steps.tag_version.outputs.TAG_VERSION }}
           files: ${{ steps.export.outputs.archive_directory }}/*
-
+      - name: unzip archive
+        run: |
+          unzip ${{ steps.export.outputs.archive_directory }} -d web
       - name: set up S3cmd cli tool
         uses: s3-actions/s3cmd@v1.2.0
         with:
@@ -45,4 +47,4 @@ jobs:
       - name: replace version
         run: |
           s3cmd del -r ${{ secrets.PMW_S3_WEB_URL }}
-          s3cmd sync --recursive --acl-public ${{ steps.export.outputs.archive_directory }} ${{ secrets.PMW_S3_WEB_URL }}
+          s3cmd sync --recursive --acl-public web ${{ secrets.PMW_S3_WEB_URL }}
