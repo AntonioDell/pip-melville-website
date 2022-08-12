@@ -36,8 +36,8 @@ jobs:
           files: ${{ steps.export.outputs.archive_directory }}/*
       - name: unzip archive
         run: |
-          unzip ${{ steps.export.outputs.archive_directory }} -d web
-      - name: set up S3cmd cli tool
+          unzip ${{ steps.export.outputs.archive_directory }}/HTML5.zip -d web
+      - name: set up s3cmd cli tool
         uses: s3-actions/s3cmd@v1.2.0
         with:
           provider: linode
