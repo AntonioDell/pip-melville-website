@@ -48,3 +48,4 @@ jobs:
         run: |
           s3cmd del -r ${{ secrets.PMW_S3_BASE_URL }}/web
           s3cmd sync --recursive --acl-public web ${{ secrets.PMW_S3_BASE_URL }}
+          s3cmd modify --recursive --add-header="Cross-Origin-Resource-Policy: cross-origin" ${{ secrets.PMW_S3_BASE_URL }}/static

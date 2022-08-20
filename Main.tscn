@@ -13,7 +13,7 @@ margin_left = -40.0
 margin_top = -9.0
 margin_right = 84.0
 margin_bottom = 9.0
-text = "Hello World 23"
+text = "Hello World 2333"
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 515, 363 )
