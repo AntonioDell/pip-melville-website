@@ -51,4 +51,5 @@ jobs:
       - name: set static access rights
         run: |
           s3cmd cp --recursive --acl-public --add-header="Cross-Origin-Resource-Policy: cross-origin" ${{ secrets.PMW_S3_BASE_URL }}/static ${{ secrets.PMW_S3_BASE_URL }}/static
+          
 
