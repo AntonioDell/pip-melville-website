@@ -257,6 +257,10 @@
             } else {
                 setStatusMode('indeterminate');
                 engine.startGame({
+                    // TODO: Remove on publish
+                    'onPrint': function (text) {
+                        console.log(text);
+                    },
                     'onProgress': function (current, total) {
                         if (total > 0) {
                             canvas.style.visibility = "hidden";
