@@ -20,7 +20,7 @@
             justify-content: center;
             align-items: center;
             height: 100%;
-            background: url("https://pip-melville-test.eu-central-1.linodeobjects.com/static/pattern.svg") repeat center;        
+            background: url("$BASE_URL/static/pattern.svg") repeat center;        
         }
 
         #canvas {
@@ -173,6 +173,7 @@
     <script type='text/javascript'>//<![CDATA[
 
         const GODOT_CONFIG = $GODOT_CONFIG;
+        GODOT_CONFIG.args.push($BASE_URL); // $BASE_URL is replaced by github action with the provided secrets.PMW_S3_BASE_URL
         var engine = new Engine(GODOT_CONFIG);
 
         (function () {

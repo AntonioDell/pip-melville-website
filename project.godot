@@ -14,12 +14,20 @@ config/name="pip-melville-website"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Config="*res://Config.tscn"
+
 [display]
 
 window/size/width=768
 window/size/height=1024
 window/size/resizable=false
 window/stretch/aspect="keep"
+
+[editor]
+
+main_run_args="--base-url=https://pip-melville-test.eu-central-1.linodeobjects.com"
 
 [global]
 

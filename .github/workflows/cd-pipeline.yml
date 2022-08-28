@@ -37,6 +37,12 @@ jobs:
       - name: unzip archive
         run: |
           unzip ${{ steps.export.outputs.archive_directory }}/HTML5.zip -d web
+      - name: set base url in index.html
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "$BASE_URL"
+          replace: "${{ secrets.PMW_S3_BASE_URL }}"
+          include: "**index.html" # Will match all index.html files in any nested directory
       - name: set up s3cmd cli tool
         uses: s3-actions/s3cmd@v1.2.0
         with:
