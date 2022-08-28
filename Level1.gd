@@ -1,6 +1,7 @@
 extends Node
 
-var image_url = "%s/data/images/" % $"/root/Config".base_url
+
+onready var image_url = "%s/data/images/" % $"/root/Config".base_url
 
 func _ready():
 	$HTTPRequest.connect("request_completed", self, "_images_loaded")
