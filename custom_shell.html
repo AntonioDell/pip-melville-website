@@ -20,7 +20,7 @@
             justify-content: center;
             align-items: center;
             height: 100%;
-            background: url("$BASE_URL/static/pattern.svg") repeat center;        
+            background: url("$BASE_URL/static/pattern.svg") repeat center;
         }
 
         #canvas {
@@ -144,6 +144,8 @@
             visibility: visible;
         }
     </style>
+    <!-- Look always to bucket base url in the /web folder, when requesting relative urls-->
+    <base href="$BASE_URL/web/" />
     $GODOT_HEAD_INCLUDE
 </head>
 
