@@ -36,3 +36,11 @@ fit_content_height = true
 script = ExtResource( 1 )
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="DebugImage" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -128.0
+margin_top = 128.0
+margin_right = 128.0
+margin_bottom = 384.0
