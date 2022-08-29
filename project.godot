@@ -30,6 +30,10 @@ window/stretch/aspect="keep"
 
 main_run_args="--base-url=https://pip-melville-test.eu-central-1.linodeobjects.com"
 
+[editor_plugins]
+
+enabled=PoolStringArray(  )
+
 [global]
 
 canvas=false
