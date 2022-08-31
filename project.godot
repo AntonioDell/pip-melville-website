@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "LevelIndicator",
+"language": "GDScript",
+"path": "res://LevelIndicator.gd"
+}, {
+"base": "Path2D",
+"class": "MapPath",
+"language": "GDScript",
+"path": "res://MapPath.gd"
+} ]
+_global_script_class_icons={
+"LevelIndicator": "",
+"MapPath": ""
+}
+
 [application]
 
 config/name="pip-melville-website"
@@ -18,6 +34,7 @@ config/icon="res://icon.png"
 
 Config="*res://Config.tscn"
 DataRepository="*res://DataRepository.tscn"
+PlayerData="*res://PlayerData.tscn"
 
 [display]
 
@@ -41,6 +58,14 @@ canvas=false
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[input]
+
+click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
 
 [physics]
 
