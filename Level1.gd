@@ -5,7 +5,6 @@ const MAX_IMAGE_COUNT := 3
 var _image_names := PoolStringArray()
 var _current_position := 0
 
-
 onready var _data_repository := $"/root/DataRepository"
 onready var _image_1 := $Images/Image1
 onready var _image_2 := $Images/Image2
@@ -23,10 +22,7 @@ func _init_gallery():
 
 
 func _show_current_images():
-	if _current_position >= _image_names.size():
-		_current_position = 0
-	elif _current_position < 0:
-		_current_position = _image_names.size() - _image_names.size() % MAX_IMAGE_COUNT
+	_calculate_current_position()
 	
 	for image_sprite in [_image_1, _image_2, _image_3]:
 		image_sprite.visible = false
@@ -39,13 +35,16 @@ func _show_current_images():
 		visible_images = [_image_1, _image_3]
 	else:
 		visible_images = [_image_2]
-		
+	
+	var loaded_images = []
+	for image_name in current_image_names.size():
+		var image = yield(_data_repository.get_image(image_name), "completed")
+		loaded_images.append(image)
+	
 	for i in visible_images.size():
 		var image_sprite := visible_images[i] as Sprite
-		var image_name = current_image_names[i]
-		var image = yield(_data_repository.get_image(image_name), "completed")
 		var texture = ImageTexture.new()
-		texture.create_from_image(image)
+		texture.create_from_image(loaded_images[i])
 		image_sprite.texture = texture
 		image_sprite.visible = true
 
@@ -58,3 +57,10 @@ func _on_BtnNext_pressed():
 func _on_BtnPrevious_pressed():
 	_current_position = _current_position - MAX_IMAGE_COUNT
 	_show_current_images()
+
+func _calculate_current_position():
+	if _current_position >= _image_names.size():
+		_current_position = 0
+	elif _current_position < 0:
+		_current_position = _image_names.size() - _image_names.size() % MAX_IMAGE_COUNT
+	
