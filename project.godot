@@ -32,9 +32,11 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Config="*res://Config.tscn"
-DataRepository="*res://DataRepository.tscn"
-PlayerData="*res://PlayerData.tscn"
+Config="*res://globals/Config.tscn"
+DataRepository="*res://globals/DataRepository.tscn"
+PlayerData="*res://globals/PlayerData.tscn"
+Transition="*res://globals/transition.tscn"
+Interactions="*res://globals/interactions.tscn"
 
 [display]
 

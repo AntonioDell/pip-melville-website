@@ -47,7 +47,7 @@ func _on_LevelIndicator_clicked(level_indicator: LevelIndicator):
 	_player_position = level_indicator.map_position
 	_skip_click = false	
 	if level_indicator.scene_to_load:
-		get_tree().change_scene_to(level_indicator.scene_to_load)
+		$"/root/Transition".fade_to(level_indicator.scene_to_load)
 
 
 func _get_current_indicator() -> LevelIndicator:
