@@ -9,15 +9,15 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "KinematicBody2D",
+"base": "Reference",
 "class": "LevelIndicator",
 "language": "GDScript",
-"path": "res://LevelIndicator.gd"
+"path": "res://level_indicator.gd"
 }, {
 "base": "Path2D",
 "class": "MapPath",
 "language": "GDScript",
-"path": "res://MapPath.gd"
+"path": "res://map_path.gd"
 } ]
 _global_script_class_icons={
 "LevelIndicator": "",
@@ -27,14 +27,14 @@ _global_script_class_icons={
 [application]
 
 config/name="pip-melville-website"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Config="*res://globals/Config.tscn"
-DataRepository="*res://globals/DataRepository.tscn"
-PlayerData="*res://globals/PlayerData.tscn"
+Config="*res://globals/config.tscn"
+DataRepository="*res://globals/data_repository.tscn"
+PlayerData="*res://globals/player_data.tscn"
 Transition="*res://globals/transition.tscn"
 Interactions="*res://globals/interactions.tscn"
 

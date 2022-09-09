@@ -37,7 +37,7 @@ func _show_current_images():
 		visible_images = [_image_2]
 	
 	var loaded_images = []
-	for image_name in current_image_names.size():
+	for image_name in current_image_names:
 		var image = yield(_data_repository.get_image(image_name), "completed")
 		loaded_images.append(image)
 	
