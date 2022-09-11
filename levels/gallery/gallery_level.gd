@@ -57,9 +57,11 @@ func _show_current_images(skip_hide_animation: bool = false):
 		gallery_frame.visible = false
 	
 	var loaded_images = []
+	var image_paths = []
 	for image_name in current_image_names:
 		var image = yield(_data_repository.get_image(image_name), "completed")
 		loaded_images.append(image)
+		image_paths.append(_data_repository.get_image_path(image_name))
 	
 	for i in visible_images.size():
 		var gallery_frame := visible_images[i] as GalleryFrame
@@ -67,12 +69,19 @@ func _show_current_images(skip_hide_animation: bool = false):
 		texture.create_from_image(loaded_images[i])
 		gallery_frame.image_texture = texture
 		gallery_frame.visible = true
+		if gallery_frame.is_connected("clicked", self, "_on_GalleryFrame_clicked"):
+			gallery_frame.disconnect("clicked", self, "_on_GalleryFrame_clicked")
+		gallery_frame.connect("clicked", self, "_on_GalleryFrame_clicked", [image_paths[i]])
 	
 	$AnimationPlayer.play("show_%s_images" % visible_images.size())
 	yield($AnimationPlayer, "animation_finished")
 	
 	$CanvasLayer/BtnPrevious.visible = true
 	$CanvasLayer/BtnNext.visible = true
+
+
+func _on_GalleryFrame_clicked(path: String):
+	JavaScript.eval("window.open('%s')" % path)
 
 
 func _on_BtnNext_pressed():

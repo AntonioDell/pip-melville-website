@@ -1,12 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://raw/empty_frame.png" type="Texture" id=1]
 [ext_resource path="res://levels/gallery/gallery_frame.gd" type="Script" id=2]
 
-[node name="GalleryFrame" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 96, 136 )
+
+[node name="GalleryFrame" type="KinematicBody2D"]
+input_pickable = true
 script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
 
 [node name="Image" type="Sprite" parent="."]
 
 [node name="Frame" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+
+[connection signal="input_event" from="." to="." method="_on_GalleryFrame_input_event"]

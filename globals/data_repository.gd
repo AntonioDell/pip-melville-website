@@ -34,6 +34,14 @@ func get_image_names() -> Array:
 	return name_list
 
 
+## Get web path for image name
+func get_image_path(name: String) -> String:
+	if not _data_info["images"].has(name):
+		printerr("DataRepository: No image named %s exists." % name);
+		return ""
+	return _data_info["images"][name]["path"]
+
+
 ## Get the image with the associated name.
 ## Since this is an async operation, the caller must wait for the "completed" signal.
 ##
