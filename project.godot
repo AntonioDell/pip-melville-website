@@ -9,17 +9,23 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Reference",
+"base": "Node2D",
+"class": "GalleryFrame",
+"language": "GDScript",
+"path": "res://levels/gallery/gallery_frame.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "LevelIndicator",
 "language": "GDScript",
 "path": "res://level_indicator.gd"
 }, {
-"base": "Path2D",
+"base": "Reference",
 "class": "MapPath",
 "language": "GDScript",
 "path": "res://map_path.gd"
 } ]
 _global_script_class_icons={
+"GalleryFrame": "",
 "LevelIndicator": "",
 "MapPath": ""
 }
