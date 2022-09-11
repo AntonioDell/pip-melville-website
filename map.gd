@@ -1,12 +1,14 @@
 extends Node2D
 
 
+signal _move_completed
+
 
 ## Holds all previously calculated shortest path maps for the respective key.
 ## key: LevelIndicator.map_position
 ## value: { LevelIndicator.map_position: { shortest_distance: int, previous_pos: LevelIndicator.map_position } }
 var _shortest_path_maps := {}
-var _skip_click := false
+var _is_moving := false
 
 onready var _level_indicators := get_tree().get_nodes_in_group("level_indicators")
 onready var _map_paths := get_tree().get_nodes_in_group("map_paths")
@@ -21,31 +23,13 @@ func _ready():
 
 
 func _on_LevelIndicator_clicked(level_indicator: LevelIndicator):
-	if _skip_click:
+	if _is_moving:
 		return
-	_skip_click = true
 	var current_indicator := _get_current_indicator()
-	if current_indicator == level_indicator:
-		_skip_click = false
-		return
-	if not _shortest_path_maps.has(_player_position):
-		_create_shortest_path_map(current_indicator)
-	var shortest_path_map = _shortest_path_maps[_player_position]
-	
-	var traversions = _get_path_traversion_between(current_indicator, level_indicator, shortest_path_map)
-	if traversions.size() == 0:
-		print("No path between %s and %s exists." % [current_indicator.map_position, level_indicator.map_position])
-		_skip_click = false
-		return
-	for i in traversions.size():
-		var path := traversions[i].path as MapPath
-		var traverse_backwards := traversions[i].traverse_backwards as bool
-		path.traverse_path(_player, traverse_backwards)
-		yield(path, "traversal_finished")
-	
-	$"/root/PlayerData".set_map_position(level_indicator.map_position)
-	_player_position = level_indicator.map_position
-	_skip_click = false	
+	if current_indicator != level_indicator:
+		_move_between(current_indicator, level_indicator)
+		yield(self, "_move_completed")
+	_is_moving = false
 	if level_indicator.scene_to_load:
 		$"/root/Transition".fade_to(level_indicator.scene_to_load)
 
@@ -57,7 +41,29 @@ func _get_current_indicator() -> LevelIndicator:
 			result = indicator
 			break
 	return result
+
+
+func _move_between(current_indicator: LevelIndicator, next_indicator: LevelIndicator):
+	_is_moving = true
+	if not _shortest_path_maps.has(_player_position):
+		_create_shortest_path_map(current_indicator)
+	var shortest_path_map = _shortest_path_maps[_player_position]
 	
+	var traversions = _get_path_traversion_between(current_indicator, next_indicator, shortest_path_map)
+	if traversions.size() == 0:
+		print("No path between %s and %s exists." % [current_indicator.map_position, next_indicator.map_position])
+		emit_signal("_move_completed")
+		return
+	for i in traversions.size():
+		var path := traversions[i].path as MapPath
+		var traverse_backwards := traversions[i].traverse_backwards as bool
+		path.traverse_path(_player, traverse_backwards)
+		yield(path, "traversal_finished")
+	
+	$"/root/PlayerData".set_map_position(next_indicator.map_position)
+	_player_position = next_indicator.map_position
+	emit_signal("_move_completed")
+
 
 ## Uses dijkstra algortihm to create a shortest path map for the source indicator
 func _create_shortest_path_map(source: LevelIndicator):
