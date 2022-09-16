@@ -10,5 +10,5 @@ func fade_to(scene: PackedScene):
 
 func _change_scene():
 	if next_scene:
-		get_tree().change_scene_to(next_scene)
+		get_tree().change_scene_to_packed(next_scene)
 		next_scene = null

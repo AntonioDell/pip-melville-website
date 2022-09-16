@@ -5,11 +5,12 @@ extends Node2D
 signal clicked
 
 
-export(Texture) var image_texture: Texture setget set_image_texture
-
-func set_image_texture(value: Texture):
-	image_texture = value
-	$Image.texture = image_texture
+@export var image_texture: Texture2D:
+	get: 
+		return image_texture # TODOConverter40 Non existent get function 
+	set(mod_value):
+		image_texture = mod_value
+		$FramedPicture.set_texture(image_texture)
 
 
 func _on_GalleryFrame_input_event(viewport, event, shape_idx):

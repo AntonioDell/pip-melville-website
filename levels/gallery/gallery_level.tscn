@@ -1,267 +1,282 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=3 uid="uid://bqi1775607o20"]
 
-[ext_resource path="res://levels/gallery/gallery_level.gd" type="Script" id=1]
-[ext_resource path="res://levels/gallery/gallery_frame.tscn" type="PackedScene" id=2]
+[ext_resource type="Script" path="res://levels/gallery/gallery_level.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://c63js13krq560" path="res://levels/gallery/gallery_frame.tscn" id="2"]
 
-[sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0 )
-colors = PoolColorArray( 0.296875, 0.21106, 0.21106, 1 )
+[sub_resource type="Gradient" id="1"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.296875, 0.21106, 0.21106, 1)
 
-[sub_resource type="GradientTexture2D" id=2]
-gradient = SubResource( 1 )
-fill_from = Vector2( 0.0125, 0 )
+[sub_resource type="GradientTexture2D" id="2"]
+gradient = SubResource("1")
+fill_from = Vector2(0.0125, 0)
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 length = 0.001
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Images/GalleryFrame1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector2( 160, 352 ) ]
+"values": [Vector2(160, 352)]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id="6"]
 resource_name = "hide_1_images"
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Images/GalleryFrame2:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 1 ),
-"transitions": PoolRealArray( 2, 0.2, 1 ),
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(2, 0.2, 1),
 "update": 0,
-"values": [ 320.0, 370.0, -160.0 ]
+"values": [320.0, 370.0, -160.0]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id="5"]
 resource_name = "hide_2_images"
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Images/GalleryFrame1:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 1 ),
-"transitions": PoolRealArray( 2, 0.2, 1 ),
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(2, 0.2, 1),
 "update": 0,
-"values": [ 320.0, 370.0, -160.0 ]
+"values": [320.0, 370.0, -160.0]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Images/GalleryFrame3:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.4, 1 ),
-"transitions": PoolRealArray( 2, 2, 0.2, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.4, 1),
+"transitions": PackedFloat32Array(2, 2, 0.2, 1),
 "update": 0,
-"values": [ 320.0, 320.0, 370.0, -160.0 ]
+"values": [320.0, 320.0, 370.0, -160.0]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id="4"]
 resource_name = "hide_3_images"
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Images/GalleryFrame1:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 1 ),
-"transitions": PoolRealArray( 2, 0.2, 1 ),
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(2, 0.2, 1),
 "update": 0,
-"values": [ 320.0, 370.0, -160.0 ]
+"values": [320.0, 370.0, -160.0]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Images/GalleryFrame2:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.4, 1 ),
-"transitions": PoolRealArray( 2, 2, 0.2, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.4, 1),
+"transitions": PackedFloat32Array(2, 2, 0.2, 1),
 "update": 0,
-"values": [ 320.0, 320.0, 370.0, -160.0 ]
+"values": [320.0, 320.0, 370.0, -160.0]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Images/GalleryFrame3:position:y")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2, 0.5, 1 ),
-"transitions": PoolRealArray( 2, 2, 0.2, 1 ),
+"times": PackedFloat32Array(0, 0.2, 0.5, 1),
+"transitions": PackedFloat32Array(2, 2, 0.2, 1),
 "update": 0,
-"values": [ 320.0, 320.0, 370.0, -160.0 ]
+"values": [320.0, 320.0, 370.0, -160.0]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id="9"]
 resource_name = "show_1_images"
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Images/GalleryFrame1:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 0.8 ),
-"transitions": PoolRealArray( 2, 0.5, 1 ),
+"times": PackedFloat32Array(0, 0.5, 0.8),
+"transitions": PackedFloat32Array(2, 0.5, 1),
 "update": 0,
-"values": [ -160.0, 370.0, 320.0 ]
+"values": [-160.0, 370.0, 320.0]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Images/GalleryFrame3:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.7, 0.8, 1 ),
-"transitions": PoolRealArray( 2, 0.5, 1, 1 ),
+"times": PackedFloat32Array(0, 0.7, 0.8, 1),
+"transitions": PackedFloat32Array(2, 0.5, 1, 1),
 "update": 0,
-"values": [ -160.0, 370.0, 320.0, 320.0 ]
+"values": [-160.0, 370.0, 320.0, 320.0]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id="7"]
 resource_name = "show_2_images"
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Images/GalleryFrame1:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 0.8 ),
-"transitions": PoolRealArray( 2, 0.5, 1 ),
+"times": PackedFloat32Array(0, 0.5, 0.8),
+"transitions": PackedFloat32Array(2, 0.5, 1),
 "update": 0,
-"values": [ -160.0, 370.0, 320.0 ]
+"values": [-160.0, 370.0, 320.0]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Images/GalleryFrame3:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.6, 0.8, 0.9 ),
-"transitions": PoolRealArray( 2, 0.5, 1, 1 ),
+"times": PackedFloat32Array(0, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(2, 0.5, 1, 1),
 "update": 0,
-"values": [ -160.0, 370.0, 320.0, 320.0 ]
+"values": [-160.0, 370.0, 320.0, 320.0]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id="8"]
 resource_name = "show_3_images"
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Images/GalleryFrame1:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 0.8 ),
-"transitions": PoolRealArray( 2, 0.5, 1 ),
+"times": PackedFloat32Array(0, 0.5, 0.8),
+"transitions": PackedFloat32Array(2, 0.5, 1),
 "update": 0,
-"values": [ -160.0, 370.0, 320.0 ]
+"values": [-160.0, 370.0, 320.0]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Images/GalleryFrame2:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.6, 0.8, 0.9 ),
-"transitions": PoolRealArray( 2, 0.5, 1, 1 ),
+"times": PackedFloat32Array(0, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(2, 0.5, 1, 1),
 "update": 0,
-"values": [ -160.0, 370.0, 320.0, 320.0 ]
+"values": [-160.0, 370.0, 320.0, 320.0]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Images/GalleryFrame3:position:y")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.7, 0.8, 1 ),
-"transitions": PoolRealArray( 2, 0.5, 1, 1 ),
+"times": PackedFloat32Array(0, 0.7, 0.8, 1),
+"transitions": PackedFloat32Array(2, 0.5, 1, 1),
 "update": 0,
-"values": [ -160.0, 370.0, 320.0, 320.0 ]
+"values": [-160.0, 370.0, 320.0, 320.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vmeur"]
+_data = {
+"RESET": SubResource("3"),
+"hide_1_images": SubResource("6"),
+"hide_2_images": SubResource("5"),
+"hide_3_images": SubResource("4"),
+"show_1_images": SubResource("9"),
+"show_2_images": SubResource("7"),
+"show_3_images": SubResource("8")
 }
 
 [node name="Level1" type="Node"]
-script = ExtResource( 1 )
+script = ExtResource("1")
 
-[node name="Background" type="Sprite" parent="."]
-position = Vector2( 384, 512 )
-scale = Vector2( 12, 16 )
-texture = SubResource( 2 )
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(384, 512)
+scale = Vector2(12, 16)
+texture = SubResource("2")
 
 [node name="Images" type="Node2D" parent="."]
 
-[node name="GalleryFrame1" parent="Images" instance=ExtResource( 2 )]
-position = Vector2( 160, 352 )
+[node name="GalleryFrame1" parent="Images" instance=ExtResource("2")]
+position = Vector2(160, 352)
 
-[node name="GalleryFrame2" parent="Images" instance=ExtResource( 2 )]
-position = Vector2( 384, 320 )
+[node name="GalleryFrame2" parent="Images" instance=ExtResource("2")]
+position = Vector2(384, 320)
 
-[node name="GalleryFrame3" parent="Images" instance=ExtResource( 2 )]
-position = Vector2( 608, 320 )
+[node name="GalleryFrame3" parent="Images" instance=ExtResource("2")]
+position = Vector2(608, 320)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -88.0
-margin_top = -72.0
-margin_right = 88.0
-margin_bottom = -41.0
+offset_left = -88.0
+offset_top = -72.0
+offset_right = 88.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 0
 text = "Welcome to Level 1!
 Press ESC to return to Map"
 fit_content_height = true
 
 [node name="BtnNext" type="Button" parent="CanvasLayer"]
+anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -104.0
-margin_top = 56.0
-margin_right = -62.0
-margin_bottom = 76.0
+offset_left = -104.0
+offset_top = 56.0
+offset_right = -62.0
+offset_bottom = 76.0
+grow_horizontal = 0
+grow_vertical = 2
 text = ">"
 
 [node name="BtnPrevious" type="Button" parent="CanvasLayer"]
+anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 64.0
-margin_top = 56.0
-margin_right = 106.0
-margin_bottom = 76.0
+offset_left = 64.0
+offset_top = 56.0
+offset_right = 106.0
+offset_bottom = 76.0
+grow_vertical = 2
 text = "<"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 3 )
-anims/hide_1_images = SubResource( 6 )
-anims/hide_2_images = SubResource( 5 )
-anims/hide_3_images = SubResource( 4 )
-anims/show_1_images = SubResource( 9 )
-anims/show_2_images = SubResource( 7 )
-anims/show_3_images = SubResource( 8 )
+libraries = {
+"": SubResource("AnimationLibrary_vmeur")
+}
 
 [connection signal="pressed" from="CanvasLayer/BtnNext" to="." method="_on_BtnNext_pressed"]
 [connection signal="pressed" from="CanvasLayer/BtnPrevious" to="." method="_on_BtnPrevious_pressed"]

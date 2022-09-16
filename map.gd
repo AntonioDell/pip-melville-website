@@ -10,14 +10,14 @@ signal _move_completed
 var _shortest_path_maps := {}
 var _is_moving := false
 
-onready var _level_indicators := get_tree().get_nodes_in_group("level_indicators")
-onready var _map_paths := get_tree().get_nodes_in_group("map_paths")
-onready var _player := $Player
-onready var _player_position := $"/root/PlayerData".get_map_position() as int
+@onready var _level_indicators := get_tree().get_nodes_in_group("level_indicators")
+@onready var _map_paths := get_tree().get_nodes_in_group("map_paths")
+@onready var _player := $Player
+@onready var _player_position : int = PlayerData.map_position
 
 func _ready():
 	for indicator in _level_indicators:
-		indicator.connect("clicked", self, "_on_LevelIndicator_clicked")
+		indicator.connect("clicked",Callable(self,"_on_LevelIndicator_clicked"))
 		if indicator.map_position == _player_position:
 			_player.global_position = indicator.global_position
 
@@ -28,7 +28,7 @@ func _on_LevelIndicator_clicked(level_indicator: LevelIndicator):
 	var current_indicator := _get_current_indicator()
 	if current_indicator != level_indicator:
 		_move_between(current_indicator, level_indicator)
-		yield(self, "_move_completed")
+		await self._move_completed
 	_is_moving = false
 	if level_indicator.scene_to_load:
 		$"/root/Transition".fade_to(level_indicator.scene_to_load)
@@ -58,9 +58,9 @@ func _move_between(current_indicator: LevelIndicator, next_indicator: LevelIndic
 		var path := traversions[i].path as MapPath
 		var traverse_backwards := traversions[i].traverse_backwards as bool
 		path.traverse_path(_player, traverse_backwards)
-		yield(path, "traversal_finished")
+		await path.traversal_finished
 	
-	$"/root/PlayerData".set_map_position(next_indicator.map_position)
+	PlayerData.map_position = next_indicator.map_position
 	_player_position = next_indicator.map_position
 	emit_signal("_move_completed")
 

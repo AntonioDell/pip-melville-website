@@ -2,9 +2,11 @@
 # Godot-specific ignores
 .import/
 export.cfg
+.godot/
 
 # Mono-specific ignores
 .mono/
 data_*/
 
 build/
+

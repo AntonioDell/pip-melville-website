@@ -1,16 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://cy58bg0hrd4ru"]
 
-[ext_resource path="res://map_path.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://map_path.gd" id="1"]
 
-[sub_resource type="Curve2D" id=1]
-_data = {
-"points": PoolVector2Array(  )
-}
+[sub_resource type="Curve2D" id="1"]
 
 [node name="MapPath" type="Path2D" groups=["map_paths"]]
-curve = SubResource( 1 )
-script = ExtResource( 1 )
+curve = SubResource("1")
+script = ExtResource("1")
+start = NodePath("")
+end = NodePath("")
 is_two_way = false
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-rotate = false
+rotates = false

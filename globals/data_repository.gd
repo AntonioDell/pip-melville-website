@@ -8,20 +8,14 @@ const DATA_IDENTIFIER := "data"
 
 
 var _data_info := {}
-var _is_data_info_loaded := false setget , is_data_info_loaded
+var is_data_info_loaded := false
 
 
-onready var base_url = $"/root/Config".base_url
+@onready var base_url = Config.base_url
 
 
 func _ready():
 	_reload_data_info()
-
-
-## Whether the data info was already loaded.
-## If not, the caller should subscribe to data_info_loaded signal
-func is_data_info_loaded() -> bool:
-	return _is_data_info_loaded
 
 
 ## Get all available names of images in the repository.
@@ -45,14 +39,14 @@ func get_image_path(name: String) -> String:
 ## Get the image with the associated name.
 ## Since this is an async operation, the caller must wait for the "completed" signal.
 ##
-## Usage: var image = yield(DataRepository.get_image(name), "completed")
+## Usage: var image = await DataRepository.get_image(name).completed
 func get_image(name: String):
 	if not _data_info["images"].has(name):
 		printerr("DataRepository: No image named %s exists." % name);
 		return null
 	
 	var error = $HTTPRequest.request(_data_info["images"][name]["path"])
-	var response = yield($HTTPRequest, "request_completed") 
+	var response = await $HTTPRequest.request_completed 
 	if error != OK:
 		return null 
 	
@@ -75,12 +69,12 @@ func get_image(name: String):
 
 func _reload_data_info():
 	print("DataRepository: Reload data info...")
-	_is_data_info_loaded = false
+	is_data_info_loaded = false
 	var error = $HTTPRequest.request(base_url, ["Accept: application/xml"])
 	if error != OK:
 		printerr(error)
 		return
-	var result = yield($HTTPRequest, "request_completed")
+	var result = await $HTTPRequest.request_completed
 	var parser := XMLParser.new()
 	var body = result[3]
 	parser.open_buffer(body)
@@ -88,7 +82,7 @@ func _reload_data_info():
 		if(parser.get_node_type() == XMLParser.NODE_ELEMENT && parser.get_node_name() == "Contents"):
 			_parse_contents(parser)
 	print("DataRepository: Reload finished.")
-	_is_data_info_loaded = true
+	is_data_info_loaded = true
 	emit_signal("data_info_loaded")
 
 
@@ -114,7 +108,7 @@ func _parse_contents(parser: XMLParser):
 							_create_data_info_entry(key)
 							last_data_key = key
 				elif current_node_name == "Size" and last_data_key != "":
-					_add_size_to_data_info(last_data_key, int(parser.get_node_data()))
+					_add_size_to_data_info(last_data_key, parser.get_node_data().to_int())
 			XMLParser.NODE_ELEMENT_END:
 				if end_tags_to_ignore > 0:
 					end_tags_to_ignore -= 1
@@ -125,7 +119,7 @@ func _parse_contents(parser: XMLParser):
 
 func _create_data_info_entry(key: String):
 	var key_parts := key.split("/")
-	key_parts.remove(0) # Remove "data/" part
+	key_parts.remove_at(0) # Remove "data/" part
 	var info_to_add = {"path": "%s/%s" % [base_url, key], "size": -1}
 	var reference_dict := _data_info
 	for i in key_parts.size():
@@ -141,7 +135,7 @@ func _create_data_info_entry(key: String):
 
 func _add_size_to_data_info(key: String, size: int):
 	var key_parts := key.split("/")
-	key_parts.remove(0) # Remove "data/" part
+	key_parts.remove_at(0) # Remove "data/" part
 	var reference_dict := _data_info
 	for part in key_parts:
 		reference_dict = reference_dict[part]
