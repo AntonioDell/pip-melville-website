@@ -54,7 +54,7 @@ jobs:
       - name: replace remote web folder
         run: |
           s3cmd del -r ${{ secrets.PMW_S3_BASE_URL }}/web
-          s3cmd sync --recursive --acl-public web ${{ secrets.PMW_S3_BASE_URL }}
+          s3cmd sync --recursive --acl-public --add-header=Cross-Origin-Opener-Policy:same-origin --add-header=Cross-Origin-Embedder-Policy:require-corp web ${{ secrets.PMW_S3_BASE_URL }}
       - name: replace remote static folder
         run: |
           s3cmd del -r ${{ secrets.PMW_S3_BASE_URL }}/static
