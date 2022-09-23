@@ -55,8 +55,7 @@ window/size/height=1024
 
 [editor]
 
-run/main_run_args="--base-url=https://pip-melville-test.eu-central-1.linodeobjects.com"
-main_run_args="--base-url=https://pip-melville-test.eu-central-1.linodeobjects.com"
+run/main_run_args="--data-bucket-url=https://s3.eu-central-1.amazonaws.com/data.pip-melville.de"
 
 [editor_plugins]
 

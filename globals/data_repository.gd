@@ -24,7 +24,10 @@ func get_image_names() -> Array:
 		return []
 	var name_list = []
 	for image_name in _data_info["images"]:
-		name_list.push_back(image_name)
+		# On AWS buckets the folders get their own xml entry -> image with empty name gets parsed
+		# This if statement is not necessary with linode object storage
+		if image_name != "":
+			name_list.push_back(image_name)
 	return name_list
 
 
@@ -99,14 +102,11 @@ func _parse_contents(parser: XMLParser):
 			XMLParser.NODE_TEXT:
 				if current_node_name == "Key":
 					var key = parser.get_node_data()
-					if not "data" in key:
-						parser.skip_section()
+					if _data_info.has(key):
+						printerr("DataRepository: Key %s already assigned. Duplicate will be ignored.");
 					else:
-						if _data_info.has(key):
-							printerr("DataRepository: Key %s already assigned. Duplicate will be ignored.");
-						else:
-							_create_data_info_entry(key)
-							last_data_key = key
+						_create_data_info_entry(key)
+						last_data_key = key
 				elif current_node_name == "Size" and last_data_key != "":
 					_add_size_to_data_info(last_data_key, parser.get_node_data().to_int())
 			XMLParser.NODE_ELEMENT_END:
@@ -119,7 +119,7 @@ func _parse_contents(parser: XMLParser):
 
 func _create_data_info_entry(key: String):
 	var key_parts := key.split("/")
-	key_parts.remove_at(0) # Remove "data/" part
+	print(key)
 	var info_to_add = {"path": "%s/%s" % [base_url, key], "size": -1}
 	var reference_dict := _data_info
 	for i in key_parts.size():
@@ -135,7 +135,6 @@ func _create_data_info_entry(key: String):
 
 func _add_size_to_data_info(key: String, size: int):
 	var key_parts := key.split("/")
-	key_parts.remove_at(0) # Remove "data/" part
 	var reference_dict := _data_info
 	for part in key_parts:
 		reference_dict = reference_dict[part]

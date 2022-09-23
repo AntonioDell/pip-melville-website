@@ -20,7 +20,7 @@
             justify-content: center;
             align-items: center;
             height: 100%;
-            background: url("$BASE_URL/static/pattern.svg") repeat center;
+            background: url("$WEB_BUCKET_URL/static/pattern.svg") repeat center;
         }
 
         #canvas {
@@ -145,7 +145,7 @@
         }
     </style>
     <!-- Look always to bucket base url in the /web folder, when requesting relative urls-->
-    <base href="$BASE_URL/web/" />
+    <base href="$WEB_BUCKET_URL/" />
     $GODOT_HEAD_INCLUDE
 </head>
 
@@ -175,7 +175,7 @@
     <script type='text/javascript'>//<![CDATA[
 
         const GODOT_CONFIG = $GODOT_CONFIG;
-        GODOT_CONFIG.args.push("--base-url=$BASE_URL"); // BASE_URL is replaced by github action with the provided secrets.PMW_S3_BASE_URL
+        GODOT_CONFIG.args.push("--data-bucket-url=$DATA_BUCKET_URL"); // DATA_BUCKET_URL is replaced by github action with the provided secrets.PMW_DATA
         var engine = new Engine(GODOT_CONFIG);
 
         (function () {
