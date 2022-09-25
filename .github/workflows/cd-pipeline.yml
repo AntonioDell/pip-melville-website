@@ -66,7 +66,5 @@ jobs:
       - name: replace remote static folder
         run: |
           s3cmd sync --recursive ${{ github.workspace }}/static ${{ secrets.PMW_WEB_S3CMD_URI }}
-          s3cmd cp --add-header=Content-Type:image/svg+xml ${{ secrets.PMW_WEB_S3CMD_URI }}/static/pattern.svg ${{ secrets.PMW_WEB_S3CMD_URI }}/static/pattern.svg
-          s3cmd cp --add-header=Content-Type:text/html ${{ secrets.PMW_WEB_S3CMD_URI }}/static/404.html ${{ secrets.PMW_WEB_S3CMD_URI }}/static/404.html
 
 
