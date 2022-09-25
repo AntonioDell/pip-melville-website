@@ -59,13 +59,15 @@ jobs:
           region: 'eu-central-1'
           access_key: ${{ secrets.PMW_S3_ACCESS_KEY }}
           secret_key: ${{ secrets.PMW_S3_SECRET_KEY }}
+      - name: delete contents of website bucket
+        run: s3cmd del -r --force ${{ secrets.PMW_WEB_S3CMD_URI }}/
+      - name: upload website files
+        run: s3cmd sync --recursive web/* ${{ secrets.PMW_WEB_BUCKET_URL }}/
       - name: replace remote website bucket
         run: |
-          s3cmd del -r ${{ secrets.PMW_WEB_S3CMD_URI }}/
       - name: replace remote static folder
         run: |
-          s3cmd del -r ${{ secrets.PMW_WEB_S3CMD_URI }}/static
-          s3cmd sync --recursive --acl-public ${{ github.workspace }}/static/ ${{ secrets.PMW_WEB_S3CMD_URI }}/static/
+          s3cmd sync --recursive --acl-public ${{ github.workspace }}/static ${{ secrets.PMW_WEB_S3CMD_URI }}/
           s3cmd cp --add-header=Content-Type:image/svg+xml ${{ secrets.PMW_WEB_S3CMD_URI }}/static/pattern.svg ${{ secrets.PMW_WEB_S3CMD_URI }}/static/pattern.svg
           s3cmd cp --add-header=Content-Type:text/html ${{ secrets.PMW_WEB_S3CMD_URI }}/static/404.html ${{ secrets.PMW_WEB_S3CMD_URI }}/static/404.html
 
