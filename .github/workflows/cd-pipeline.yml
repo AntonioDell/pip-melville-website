@@ -66,5 +66,12 @@ jobs:
       - name: replace remote static folder
         run: |
           s3cmd sync --recursive ${{ github.workspace }}/static ${{ secrets.PMW_WEB_S3CMD_URI }}
-
+      - name: invalidate aws distribution
+        uses: chetan/invalidate-cloudfront-action@v2
+        env:
+          PATHS_FROM: "/*"
+          AWS_REGION: 'eu-central-1'
+          DISTRIBUTION: ${{ secrets.PMW_DISTRIBUTION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.PMW_S3_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.PMW_S3_SECRET_KEY }}
 
