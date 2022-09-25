@@ -63,8 +63,6 @@ jobs:
         run: s3cmd del -r --force ${{ secrets.PMW_WEB_S3CMD_URI }}
       - name: upload website files
         run: s3cmd sync --recursive web/* ${{ secrets.PMW_WEB_S3CMD_URI }}
-      - name: replace remote website bucket
-        run: |
       - name: replace remote static folder
         run: |
           s3cmd sync --recursive ${{ github.workspace }}/static ${{ secrets.PMW_WEB_S3CMD_URI }}
