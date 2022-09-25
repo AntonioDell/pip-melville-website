@@ -10,13 +10,15 @@ signal traversal_finished
 	set(mod_value):
 		start = mod_value
 		_init_curve()
+
 @export var end: NodePath:
 	get:
 		return end # TODOConverter40 Non existent get function 
 	set(mod_value):
 		end = mod_value
 		_init_curve()
-@export var is_two_way := true
+
+@export var is_two_way := false
 
 var start_map_position: int
 var end_map_position: int
@@ -24,6 +26,7 @@ var end_map_position: int
 var _player_node: Node2D
 
 func _ready():
+	print("is_two_way=%s" % is_two_way)
 	_init_curve()
 	if not Engine.is_editor_hint():
 		_update_map_positions()

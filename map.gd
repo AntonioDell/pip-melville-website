@@ -11,7 +11,7 @@ var _shortest_path_maps := {}
 var _is_moving := false
 
 @onready var _level_indicators := get_tree().get_nodes_in_group("level_indicators")
-@onready var _map_paths := get_tree().get_nodes_in_group("map_paths")
+@onready var _map_paths: Array = get_tree().get_nodes_in_group("map_paths")
 @onready var _player := $Player
 @onready var _player_position : int = PlayerData.map_position
 
@@ -66,6 +66,7 @@ func _move_between(current_indicator: LevelIndicator, next_indicator: LevelIndic
 
 
 ## Uses dijkstra algortihm to create a shortest path map for the source indicator
+## FIXME: This algorithm behaves differently on exports than on editor play
 func _create_shortest_path_map(source: LevelIndicator):
 	# Init
 	var visited := {}
@@ -77,7 +78,6 @@ func _create_shortest_path_map(source: LevelIndicator):
 		unvisited[pos] = indicator
 		result[pos] = {"shortest_distance": INF, "previous_pos": null}
 	result[source.map_position] = {"shortest_distance": 0, "previous_pos": null}
-	
 	# Iterate all unvisited nodes
 	while unvisited.size() > 0:
 		var current_pos := _find_shortest(unvisited, result)
@@ -123,6 +123,8 @@ func _get_path_traversion_between(source: LevelIndicator, target: LevelIndicator
 	var current_pos := target.map_position
 	while current_pos != source.map_position:
 		var previous_pos = shortest_path_map[current_pos].previous_pos
+		if previous_pos == null:
+			return []
 		for i in _map_paths.size():
 			var path := _map_paths[i] as MapPath
 			if path.start_map_position == previous_pos and path.end_map_position == current_pos:

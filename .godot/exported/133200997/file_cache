@@ -6,7 +6,7 @@ res://globals/transition.tscn::321d8411edeedf9fea8f108f0475aae3::1663305309::res
 res://levels/gallery/gallery_frame.tscn::2d70d42cb6bd72cec8ceee253991e51a::1663311033::res://.godot/exported/133200997/export-d9f1b725f1c73c264ba97bcdf286ab4f-gallery_frame.scn
 res://levels/gallery/gallery_level.tscn::97b9e6996a8d83e0861e9e67ada761ab::1664096131::res://.godot/exported/133200997/export-a7879c8310bb580fc8f6c5cc379e33a2-gallery_level.scn
 res://default_env.tres::a52129f071fffbd20a6013a6c0edec1e::1663305309::res://.godot/exported/133200997/export-7cf3fd67ad9f55210191d77b582b8209-default_env.res
-res://level_indicator.tscn::6b0599e45783456c0fd1bb444166e193::1663311033::res://.godot/exported/133200997/export-1e1cb7e9453e8db61b7b9c0544e2a8cf-level_indicator.scn
-res://main.tscn::c9c52bc44287801d25875249da1be692::1664096132::res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn
-res://map.tscn::3e0060387b787a1db97f6971b9b82fce::1664096131::res://.godot/exported/133200997/export-e6d97c4feb736ad10c0d43b3f8310ea4-map.scn
+res://level_indicator.tscn::c56d0ed562717305d6899c0e29a01875::1664133925::res://.godot/exported/133200997/export-1e1cb7e9453e8db61b7b9c0544e2a8cf-level_indicator.scn
+res://main.tscn::c9c52bc44287801d25875249da1be692::1664133924::res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn
+res://map.tscn::f1d3f32447e8d6faa7093eb7a4c3782b::1664133925::res://.godot/exported/133200997/export-e6d97c4feb736ad10c0d43b3f8310ea4-map.scn
 res://map_path.tscn::4b1e0ba6eaab1ad325842437d7c01386::1664096131::res://.godot/exported/133200997/export-89a256c57fc2d6a1d8db8b124dcb2e1c-map_path.scn

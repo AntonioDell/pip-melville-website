@@ -13,6 +13,8 @@ blend_mode = 2
 position = Vector2(296, 784)
 input_pickable = true
 script = ExtResource("1")
+player_path_follow_node = NodePath("")
+map_position = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("5")

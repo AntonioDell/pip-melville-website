@@ -13,23 +13,23 @@ colors = PackedColorArray(0.183594, 0.183594, 0.183594, 1, 0.570312, 0.570312, 0
 gradient = SubResource("1")
 width = 1024
 
-[sub_resource type="Curve2D" id="3"]
+[sub_resource type="Curve2D" id="Curve2D_3t044"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 315, 957, 15.4597, 54.7036, -15.4597, -54.7036, 405, 858, -15.4597, 63.028, 15.4597, -63.028, 247, 818, 0, 0, 0, 0, 359, 716)
-}
-point_count = 4
-
-[sub_resource type="Curve2D" id="4"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 359, 716, 1.58919, 50.3245, -1.58919, -50.3245, 425, 599, 0, 0, 0, 0, 365, 490)
+"points": PackedVector2Array(0, 0, 0, 0, 320, 954, -10, 102, 10, -102, 155, 849, 0, 0, 0, 0, 360, 717)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="5"]
+[sub_resource type="Curve2D" id="Curve2D_bsq2y"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 359, 716, 66.2164, 1.05946, -66.2164, -1.05946, 291, 578, -83.1678, 3.70812, 83.1678, -3.70812, 260, 665, 0, 0, 0, 0, 197, 498)
+"points": PackedVector2Array(0, 0, 0, 0, 358, 715, 262, 114, -262, -114, 363, 493)
 }
-point_count = 4
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_g6k4e"]
+_data = {
+"points": PackedVector2Array(-36, 291, 36, -291, 445, 584, -69, 33, 69, -33, 212, 503)
+}
+point_count = 2
 
 [node name="Map" type="Node2D"]
 position = Vector2(0, -1)
@@ -48,20 +48,21 @@ texture = ExtResource("2")
 
 [node name="Paths" type="Node2D" parent="."]
 
-[node name="0->1" parent="Paths" instance=ExtResource("1")]
-curve = SubResource("3")
+[node name="0 -> 1" parent="Paths" instance=ExtResource("1")]
+curve = SubResource("Curve2D_3t044")
 start = NodePath("../../Indicators/LevelIndicator0")
 end = NodePath("../../Indicators/LevelIndicator1")
 is_two_way = true
 
-[node name="1->2" parent="Paths" instance=ExtResource("1")]
-curve = SubResource("4")
+[node name="1 -> 2" parent="Paths" instance=ExtResource("1")]
+curve = SubResource("Curve2D_bsq2y")
 start = NodePath("../../Indicators/LevelIndicator1")
 end = NodePath("../../Indicators/LevelIndicator2")
 is_two_way = true
 
-[node name="1->3" parent="Paths" instance=ExtResource("1")]
-curve = SubResource("5")
+[node name="1 -> 3" parent="Paths" instance=ExtResource("1")]
+position = Vector2(-88, 129)
+curve = SubResource("Curve2D_g6k4e")
 start = NodePath("../../Indicators/LevelIndicator1")
 end = NodePath("../../Indicators/LevelIndicator3")
 is_two_way = true
@@ -70,14 +71,11 @@ is_two_way = true
 
 [node name="LevelIndicator0" parent="Indicators" instance=ExtResource("3")]
 position = Vector2(315, 958)
-player_path_follow_node = NodePath("")
-map_position = 0
 level_name = "Start position"
 
 [node name="LevelIndicator1" parent="Indicators" instance=ExtResource("3")]
 position = Vector2(359, 717)
 rotation = 0.785398
-player_path_follow_node = NodePath("")
 scene_to_load = ExtResource("5")
 map_position = 1
 level_name = "Gallery"
@@ -85,13 +83,11 @@ level_name = "Gallery"
 [node name="LevelIndicator2" parent="Indicators" instance=ExtResource("3")]
 position = Vector2(365, 491)
 rotation = 1.5708
-player_path_follow_node = NodePath("")
 map_position = 2
 level_name = "Nothing"
 
 [node name="LevelIndicator3" parent="Indicators" instance=ExtResource("3")]
-position = Vector2(197, 499)
+position = Vector2(123, 631)
 rotation = 4.71239
-player_path_follow_node = NodePath("")
 map_position = 3
 level_name = "Nothing"
