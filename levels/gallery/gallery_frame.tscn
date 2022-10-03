@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c63js13krq560"]
+[gd_scene load_steps=8 format=3 uid="uid://c63js13krq560"]
 
 [ext_resource type="Texture2D" uid="uid://bf16v3lrtnpuh" path="res://raw/empty_frame.png" id="1"]
 [ext_resource type="Script" path="res://levels/gallery/gallery_frame.gd" id="2"]
@@ -6,16 +6,80 @@
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(192, 272)
 
+[sub_resource type="Animation" id="Animation_q4xsg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0pesu"]
+resource_name = "swing_to_right_movement"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1, 1.1, 2, 2.5, 2.8, 3),
+"transitions": PackedFloat32Array(0.5, 13.9288, 2, 2, 2, 2, 1, 2),
+"update": 0,
+"values": [0.0, 0.174533, 0.139626, 0.174533, 0.20944, -0.139626, 0.10472, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_wg4bd"]
+resource_name = "swing_to_left_movement"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1, 1.1, 2, 2.5, 2.8, 3),
+"transitions": PackedFloat32Array(0.5, 13.9288, 2, 2, 2, 2, 1, 2),
+"update": 0,
+"values": [0.0, -0.174533, -0.139626, -0.174533, -0.20944, 0.139626, -0.10472, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_anqa5"]
+_data = {
+"RESET": SubResource("Animation_q4xsg"),
+"swing_to_left_movement": SubResource("Animation_wg4bd"),
+"swing_to_right_movement": SubResource("Animation_0pesu")
+}
+
 [node name="GalleryFrame" type="CharacterBody2D"]
 input_pickable = true
 script = ExtResource("2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 129.5)
 shape = SubResource("1")
 
 [node name="FramedPicture" type="Sprite2D" parent="."]
+position = Vector2(4, 1.5)
+offset = Vector2(0, 128)
 
 [node name="Frame" type="Sprite2D" parent="."]
+position = Vector2(4, 1.5)
 texture = ExtResource("1")
+offset = Vector2(0, 128)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_anqa5")
+}
 
 [connection signal="input_event" from="." to="." method="_on_GalleryFrame_input_event"]

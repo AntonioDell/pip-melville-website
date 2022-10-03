@@ -16,3 +16,11 @@ signal clicked
 func _on_GalleryFrame_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
 		emit_signal("clicked")
+
+func start_swinging(move_to_right: bool) -> void:
+	if $AnimationPlayer.is_playing():
+		$AnimationPlayer.stop(true)
+	if move_to_right:
+		$AnimationPlayer.play("swing_to_right_movement")
+	else:
+		$AnimationPlayer.play("swing_to_left_movement")

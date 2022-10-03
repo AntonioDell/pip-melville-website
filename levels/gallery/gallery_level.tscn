@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bqi1775607o20"]
+[gd_scene load_steps=5 format=3 uid="uid://bqi1775607o20"]
 
 [ext_resource type="Script" path="res://levels/gallery/gallery_level.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://c63js13krq560" path="res://levels/gallery/gallery_frame.tscn" id="2"]
@@ -11,206 +11,6 @@ colors = PackedColorArray(0.296875, 0.21106, 0.21106, 1)
 gradient = SubResource("1")
 fill_from = Vector2(0.0125, 0)
 
-[sub_resource type="Animation" id="3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Images/GalleryFrame1:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(160, 352)]
-}
-
-[sub_resource type="Animation" id="6"]
-resource_name = "hide_1_images"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Images/GalleryFrame2:position:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 1),
-"transitions": PackedFloat32Array(2, 0.2, 1),
-"update": 0,
-"values": [320.0, 370.0, -160.0]
-}
-
-[sub_resource type="Animation" id="5"]
-resource_name = "hide_2_images"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Images/GalleryFrame1:position:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 1),
-"transitions": PackedFloat32Array(2, 0.2, 1),
-"update": 0,
-"values": [320.0, 370.0, -160.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Images/GalleryFrame3:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.4, 1),
-"transitions": PackedFloat32Array(2, 2, 0.2, 1),
-"update": 0,
-"values": [320.0, 320.0, 370.0, -160.0]
-}
-
-[sub_resource type="Animation" id="4"]
-resource_name = "hide_3_images"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Images/GalleryFrame1:position:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 1),
-"transitions": PackedFloat32Array(2, 0.2, 1),
-"update": 0,
-"values": [320.0, 370.0, -160.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Images/GalleryFrame2:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.4, 1),
-"transitions": PackedFloat32Array(2, 2, 0.2, 1),
-"update": 0,
-"values": [320.0, 320.0, 370.0, -160.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Images/GalleryFrame3:position:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.5, 1),
-"transitions": PackedFloat32Array(2, 2, 0.2, 1),
-"update": 0,
-"values": [320.0, 320.0, 370.0, -160.0]
-}
-
-[sub_resource type="Animation" id="9"]
-resource_name = "show_1_images"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Images/GalleryFrame1:position:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.8),
-"transitions": PackedFloat32Array(2, 0.5, 1),
-"update": 0,
-"values": [-160.0, 370.0, 320.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Images/GalleryFrame3:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.7, 0.8, 1),
-"transitions": PackedFloat32Array(2, 0.5, 1, 1),
-"update": 0,
-"values": [-160.0, 370.0, 320.0, 320.0]
-}
-
-[sub_resource type="Animation" id="7"]
-resource_name = "show_2_images"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Images/GalleryFrame1:position:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.8),
-"transitions": PackedFloat32Array(2, 0.5, 1),
-"update": 0,
-"values": [-160.0, 370.0, 320.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Images/GalleryFrame3:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6, 0.8, 0.9),
-"transitions": PackedFloat32Array(2, 0.5, 1, 1),
-"update": 0,
-"values": [-160.0, 370.0, 320.0, 320.0]
-}
-
-[sub_resource type="Animation" id="8"]
-resource_name = "show_3_images"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Images/GalleryFrame1:position:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.8),
-"transitions": PackedFloat32Array(2, 0.5, 1),
-"update": 0,
-"values": [-160.0, 370.0, 320.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Images/GalleryFrame2:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6, 0.8, 0.9),
-"transitions": PackedFloat32Array(2, 0.5, 1, 1),
-"update": 0,
-"values": [-160.0, 370.0, 320.0, 320.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Images/GalleryFrame3:position:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.7, 0.8, 1),
-"transitions": PackedFloat32Array(2, 0.5, 1, 1),
-"update": 0,
-"values": [-160.0, 370.0, 320.0, 320.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vmeur"]
-_data = {
-"RESET": SubResource("3"),
-"hide_1_images": SubResource("6"),
-"hide_2_images": SubResource("5"),
-"hide_3_images": SubResource("4"),
-"show_1_images": SubResource("9"),
-"show_2_images": SubResource("7"),
-"show_3_images": SubResource("8")
-}
-
 [node name="Level1" type="Node"]
 script = ExtResource("1")
 
@@ -219,16 +19,96 @@ position = Vector2(384, 512)
 scale = Vector2(12, 16)
 texture = SubResource("2")
 
+[node name="FramePositions" type="Node2D" parent="."]
+
+[node name="SingleFrame" type="Node2D" parent="FramePositions"]
+
+[node name="Entry" type="Node2D" parent="FramePositions/SingleFrame"]
+
+[node name="1" type="Node2D" parent="FramePositions/SingleFrame/Entry"]
+position = Vector2(-192, 320)
+
+[node name="Visible" type="Node2D" parent="FramePositions/SingleFrame"]
+
+[node name="1" type="Node2D" parent="FramePositions/SingleFrame/Visible"]
+position = Vector2(384, 256)
+
+[node name="Exit" type="Node2D" parent="FramePositions/SingleFrame"]
+
+[node name="1" type="Node2D" parent="FramePositions/SingleFrame/Exit"]
+position = Vector2(960, 320)
+
+[node name="TwoFrames" type="Node2D" parent="FramePositions"]
+
+[node name="Entry" type="Node2D" parent="FramePositions/TwoFrames"]
+
+[node name="1" type="Node2D" parent="FramePositions/TwoFrames/Entry"]
+position = Vector2(-420, 320)
+
+[node name="2" type="Node2D" parent="FramePositions/TwoFrames/Entry"]
+position = Vector2(-192, 320)
+
+[node name="Visible" type="Node2D" parent="FramePositions/TwoFrames"]
+
+[node name="1" type="Node2D" parent="FramePositions/TwoFrames/Visible"]
+position = Vector2(256, 258)
+
+[node name="2" type="Node2D" parent="FramePositions/TwoFrames/Visible"]
+position = Vector2(512, 258)
+
+[node name="Exit" type="Node2D" parent="FramePositions/TwoFrames"]
+
+[node name="1" type="Node2D" parent="FramePositions/TwoFrames/Exit"]
+position = Vector2(960, 320)
+
+[node name="2" type="Node2D" parent="FramePositions/TwoFrames/Exit"]
+position = Vector2(1180, 320)
+
+[node name="ThreeFrames" type="Node2D" parent="FramePositions"]
+
+[node name="Entry" type="Node2D" parent="FramePositions/ThreeFrames"]
+
+[node name="1" type="Node2D" parent="FramePositions/ThreeFrames/Entry"]
+position = Vector2(-640, 320)
+
+[node name="2" type="Node2D" parent="FramePositions/ThreeFrames/Entry"]
+position = Vector2(-420, 320)
+
+[node name="3" type="Node2D" parent="FramePositions/ThreeFrames/Entry"]
+position = Vector2(-192, 320)
+
+[node name="Visible" type="Node2D" parent="FramePositions/ThreeFrames"]
+
+[node name="1" type="Node2D" parent="FramePositions/ThreeFrames/Visible"]
+position = Vector2(164, 256)
+
+[node name="2" type="Node2D" parent="FramePositions/ThreeFrames/Visible"]
+position = Vector2(384, 256)
+
+[node name="3" type="Node2D" parent="FramePositions/ThreeFrames/Visible"]
+position = Vector2(600, 256)
+
+[node name="Exit" type="Node2D" parent="FramePositions/ThreeFrames"]
+
+[node name="1" type="Node2D" parent="FramePositions/ThreeFrames/Exit"]
+position = Vector2(960, 320)
+
+[node name="2" type="Node2D" parent="FramePositions/ThreeFrames/Exit"]
+position = Vector2(1180, 320)
+
+[node name="3" type="Node2D" parent="FramePositions/ThreeFrames/Exit"]
+position = Vector2(1404, 320)
+
 [node name="Images" type="Node2D" parent="."]
 
 [node name="GalleryFrame1" parent="Images" instance=ExtResource("2")]
-position = Vector2(160, 352)
+position = Vector2(168, 256)
 
 [node name="GalleryFrame2" parent="Images" instance=ExtResource("2")]
-position = Vector2(384, 320)
+position = Vector2(384, 256)
 
 [node name="GalleryFrame3" parent="Images" instance=ExtResource("2")]
-position = Vector2(608, 320)
+position = Vector2(600, 256)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -272,11 +152,6 @@ offset_right = 106.0
 offset_bottom = 76.0
 grow_vertical = 2
 text = "<"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_vmeur")
-}
 
 [connection signal="pressed" from="CanvasLayer/BtnNext" to="." method="_on_BtnNext_pressed"]
 [connection signal="pressed" from="CanvasLayer/BtnPrevious" to="." method="_on_BtnPrevious_pressed"]

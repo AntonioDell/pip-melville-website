@@ -1,5 +1,7 @@
-res://map.tscn
-res://map_path.gd
+res://levels/gallery/gallery_frame.tscn
+res://levels/gallery/gallery_frame.gd
+res://levels/gallery/gallery_level.tscn
+res://levels/gallery/gallery_level.gd
 res://main.tscn
+res://map.tscn
 res://level_indicator.tscn
-res://map.gd
