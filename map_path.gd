@@ -26,7 +26,6 @@ var end_map_position: int
 var _player_node: Node2D
 
 func _ready():
-	print("is_two_way=%s" % is_two_way)
 	_init_curve()
 	if not Engine.is_editor_hint():
 		_update_map_positions()

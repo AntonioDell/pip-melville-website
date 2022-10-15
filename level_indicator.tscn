@@ -1,31 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhljkiuo67f0k"]
+[gd_scene load_steps=3 format=3 uid="uid://bhljkiuo67f0k"]
 
 [ext_resource type="Script" path="res://level_indicator.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://7015tnpv5ruu" path="res://icon.png" id="3"]
 
-[sub_resource type="RectangleShape2D" id="5"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt13o"]
 size = Vector2(68, 66)
 
-[sub_resource type="CanvasItemMaterial" id="4"]
-blend_mode = 2
-
 [node name="LevelIndicator" type="CharacterBody2D" groups=["level_indicators"]]
-position = Vector2(296, 784)
 input_pickable = true
 script = ExtResource("1")
-player_path_follow_node = NodePath("")
 map_position = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("5")
+shape = SubResource("RectangleShape2D_tt13o")
 
 [node name="IndicatorSprite" type="Sprite2D" parent="."]
-modulate = Color(0.972549, 0.588235, 0.388235, 1)
-material = SubResource("4")
-texture = ExtResource("3")
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 14.0
 
 [connection signal="input_event" from="." to="." method="_on_LevelIndicator_input_event"]

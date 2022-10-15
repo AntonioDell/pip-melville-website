@@ -21,22 +21,6 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_0pesu"]
-resource_name = "swing_to_right_movement"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 1, 1.1, 2, 2.5, 2.8, 3),
-"transitions": PackedFloat32Array(0.5, 13.9288, 2, 2, 2, 2, 1, 2),
-"update": 0,
-"values": [0.0, 0.174533, 0.139626, 0.174533, 0.20944, -0.139626, 0.10472, 0.0]
-}
-
 [sub_resource type="Animation" id="Animation_wg4bd"]
 resource_name = "swing_to_left_movement"
 length = 3.0
@@ -51,6 +35,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(0.5, 13.9288, 2, 2, 2, 2, 1, 2),
 "update": 0,
 "values": [0.0, -0.174533, -0.139626, -0.174533, -0.20944, 0.139626, -0.10472, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0pesu"]
+resource_name = "swing_to_right_movement"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1, 1.1, 2, 2.5, 2.8, 3),
+"transitions": PackedFloat32Array(0.5, 13.9288, 2, 2, 2, 2, 1, 2),
+"update": 0,
+"values": [0.0, 0.174533, 0.139626, 0.174533, 0.20944, -0.139626, 0.10472, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_anqa5"]

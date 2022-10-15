@@ -1,17 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://bu33hkgfjvme8"]
+[gd_scene load_steps=13 format=3 uid="uid://bu33hkgfjvme8"]
 
 [ext_resource type="PackedScene" uid="uid://cy58bg0hrd4ru" path="res://map_path.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://7015tnpv5ruu" path="res://icon.png" id="2"]
 [ext_resource type="PackedScene" uid="uid://bhljkiuo67f0k" path="res://level_indicator.tscn" id="3"]
 [ext_resource type="Script" path="res://map.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://bqi1775607o20" path="res://levels/gallery/gallery_level.tscn" id="5"]
+[ext_resource type="Texture2D" uid="uid://cjx2btnv47wmb" path="res://levels/gallery/startpoint.png" id="5_jh5np"]
 
 [sub_resource type="Gradient" id="1"]
-colors = PackedColorArray(0.183594, 0.183594, 0.183594, 1, 0.570312, 0.570312, 0.570312, 1)
+offsets = PackedFloat32Array(0.00380228)
+colors = PackedColorArray(0.991164, 0.991164, 0.991164, 1)
 
 [sub_resource type="GradientTexture2D" id="2"]
 gradient = SubResource("1")
 width = 1024
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ai124"]
+size = Vector2(102, 121)
 
 [sub_resource type="Curve2D" id="Curve2D_3t044"]
 _data = {
@@ -41,9 +46,43 @@ rotation = 1.5708
 scale = Vector2(1, 764)
 texture = SubResource("2")
 
-[node name="Player" type="Sprite2D" parent="."]
-position = Vector2(392, 960)
-scale = Vector2(0.5, 0.5)
+[node name="Indicators" type="Node2D" parent="."]
+
+[node name="LevelIndicator0" parent="Indicators" instance=ExtResource("3")]
+position = Vector2(315, 958)
+
+[node name="CollisionShape2D" parent="Indicators/LevelIndicator0" index="0"]
+position = Vector2(0, -75.5)
+shape = SubResource("RectangleShape2D_ai124")
+
+[node name="IndicatorSprite" parent="Indicators/LevelIndicator0" index="1"]
+position = Vector2(0, -74)
+scale = Vector2(0.174, 0.174)
+texture = ExtResource("5_jh5np")
+
+[node name="LevelIndicator1" parent="Indicators" instance=ExtResource("3")]
+position = Vector2(359, 717)
+rotation = 0.785398
+scene_to_load = ExtResource("5")
+map_position = 1
+
+[node name="IndicatorSprite" parent="Indicators/LevelIndicator1" index="1"]
+texture = ExtResource("2")
+
+[node name="LevelIndicator2" parent="Indicators" instance=ExtResource("3")]
+position = Vector2(365, 491)
+rotation = 1.5708
+map_position = 2
+
+[node name="IndicatorSprite" parent="Indicators/LevelIndicator2" index="1"]
+texture = ExtResource("2")
+
+[node name="LevelIndicator3" parent="Indicators" instance=ExtResource("3")]
+position = Vector2(123, 631)
+rotation = 4.71239
+map_position = 3
+
+[node name="IndicatorSprite" parent="Indicators/LevelIndicator3" index="1"]
 texture = ExtResource("2")
 
 [node name="Paths" type="Node2D" parent="."]
@@ -67,27 +106,12 @@ start = NodePath("../../Indicators/LevelIndicator1")
 end = NodePath("../../Indicators/LevelIndicator3")
 is_two_way = true
 
-[node name="Indicators" type="Node2D" parent="."]
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(326, 945)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2")
 
-[node name="LevelIndicator0" parent="Indicators" instance=ExtResource("3")]
-position = Vector2(315, 958)
-level_name = "Start position"
-
-[node name="LevelIndicator1" parent="Indicators" instance=ExtResource("3")]
-position = Vector2(359, 717)
-rotation = 0.785398
-scene_to_load = ExtResource("5")
-map_position = 1
-level_name = "Gallery"
-
-[node name="LevelIndicator2" parent="Indicators" instance=ExtResource("3")]
-position = Vector2(365, 491)
-rotation = 1.5708
-map_position = 2
-level_name = "Nothing"
-
-[node name="LevelIndicator3" parent="Indicators" instance=ExtResource("3")]
-position = Vector2(123, 631)
-rotation = 4.71239
-map_position = 3
-level_name = "Nothing"
+[editable path="Indicators/LevelIndicator0"]
+[editable path="Indicators/LevelIndicator1"]
+[editable path="Indicators/LevelIndicator2"]
+[editable path="Indicators/LevelIndicator3"]
