@@ -114,6 +114,9 @@ position = Vector2(600, 256)
 [node name="Lever" parent="." instance=ExtResource("3_ngd8j")]
 position = Vector2(384, 844)
 is_blocked = true
+max_drag_length = 250.0
+max_rotation = 50.0
+rotation_easing = 1.81886
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
