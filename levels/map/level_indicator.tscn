@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://r1oh1igoaymx"]
 
 [ext_resource type="Script" path="res://levels/map/level_indicator.gd" id="1"]
 

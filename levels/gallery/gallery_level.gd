@@ -11,8 +11,6 @@ var _current_position := 0
 @onready var _image_3 := $Images/GalleryFrame3
 
 func _ready():
-	$CanvasLayer/BtnPrevious.visible = false
-	$CanvasLayer/BtnNext.visible = false
 	for gallery_frame in [_image_1, _image_2, _image_3]:
 		gallery_frame.position.y = - gallery_frame.position.y / 2
 		gallery_frame.visible = false
@@ -24,15 +22,12 @@ func _ready():
 
 func _init_gallery():
 	_image_names = DataRepository.get_image_names()
-	_show_current_images(true, true)
+	await _show_current_images(true, true)
+	$Lever.is_blocked = false
 
 
 func _show_current_images(enter_from_left: bool = true, skip_hide_animation: bool = false):
-	$CanvasLayer/BtnPrevious.visible = false
-	$CanvasLayer/BtnNext.visible = false
-	
 	_calculate_current_position()
-	
 	
 	var current_image_names = Array(_image_names).slice(_current_position, _current_position + MAX_IMAGE_COUNT)
 	var visible_images := []
@@ -87,9 +82,7 @@ func _show_current_images(enter_from_left: bool = true, skip_hide_animation: boo
 		var gallery_frame := visible_images[index] as GalleryFrame
 		_tween_frame(entry_tween, gallery_frame, positions["visible"][index], TWEEN_DELAY*i, enter_from_left)
 	await entry_tween.finished
-	
-	$CanvasLayer/BtnPrevious.visible = true
-	$CanvasLayer/BtnNext.visible = true
+
 
 func _get_frame_positions(number_of_frames: int) -> Dictionary:
 	var positions := {"entry": [], "visible": [], "exit": []}
@@ -119,17 +112,19 @@ func _tween_frame(tween: Tween, frame: GalleryFrame, end_position: Vector2, dela
 	tween.tween_callback(func(): frame.start_swinging(move_to_right)).set_delay(delay)
 
 
-func _on_BtnNext_pressed():
-	_current_position = _current_position + MAX_IMAGE_COUNT
-	_show_current_images(true)
-
-
-func _on_BtnPrevious_pressed():
-	_current_position = _current_position - MAX_IMAGE_COUNT
-	_show_current_images(false)
-
 func _calculate_current_position():
 	if _current_position >= _image_names.size():
 		_current_position = 0
 	elif _current_position < 0:
 		_current_position = _image_names.size() - _image_names.size() % MAX_IMAGE_COUNT
+
+
+func _on_Lever_triggered(direction: Vector2):
+	$Lever.is_blocked = true
+	if direction == Vector2.RIGHT:
+		_current_position = _current_position + MAX_IMAGE_COUNT
+		await _show_current_images(true)
+	else:
+		_current_position = _current_position - MAX_IMAGE_COUNT
+		await _show_current_images(false)
+	$Lever.is_blocked = false

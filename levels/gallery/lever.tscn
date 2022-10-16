@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://dkid7tq2ada0x"]
+
+[ext_resource type="Script" path="res://levels/gallery/lever.gd" id="1_60qto"]
+
+[sub_resource type="Gradient" id="Gradient_rndyq"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lv2bf"]
+gradient = SubResource("Gradient_rndyq")
+
+[sub_resource type="Gradient" id="Gradient_svade"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.101961, 0.243137, 0.623529, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aqxgp"]
+gradient = SubResource("Gradient_svade")
+width = 32
+height = 192
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xy10y"]
+size = Vector2(32, 149)
+
+[sub_resource type="Gradient" id="Gradient_lkdgg"]
+offsets = PackedFloat32Array(0.0217391)
+colors = PackedColorArray(0.201527, 0.201527, 0.201527, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wh4gp"]
+gradient = SubResource("Gradient_lkdgg")
+
+[node name="Lever" type="Node2D"]
+position = Vector2(373, 420)
+script = ExtResource("1_60qto")
+max_drag_length = 200.0
+max_rotation = 45.0
+rotation_easing = 2.163
+max_wiggle = 10.0
+
+[node name="BaseBack" type="Sprite2D" parent="."]
+position = Vector2(-5, -37)
+texture = SubResource("GradientTexture2D_lv2bf")
+
+[node name="Handle" type="Sprite2D" parent="."]
+position = Vector2(0, -21)
+texture = SubResource("GradientTexture2D_aqxgp")
+offset = Vector2(0, -96)
+
+[node name="GrabArea" type="Area2D" parent="Handle"]
+position = Vector2(0, 21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Handle/GrabArea"]
+position = Vector2(0, -138.5)
+shape = SubResource("RectangleShape2D_xy10y")
+
+[node name="BaseFront" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = SubResource("GradientTexture2D_wh4gp")
+
+[connection signal="input_event" from="Handle/GrabArea" to="." method="_on_GrabArea_input_event"]
