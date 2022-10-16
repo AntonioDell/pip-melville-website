@@ -31,6 +31,9 @@ func _on_LevelIndicator_clicked(level_indicator: LevelIndicator):
 		await _move_between(current_indicator, level_indicator)
 	_is_moving = false
 	if level_indicator.scene_to_load:
+		var fadeOutTweener := create_tween()
+		fadeOutTweener.tween_property(_player, "modulate", Color.TRANSPARENT, 1)
+		await fadeOutTweener.finished
 		$"/root/Transition".fade_to(level_indicator.scene_to_load)
 
 
