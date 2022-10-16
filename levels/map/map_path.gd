@@ -2,8 +2,6 @@
 class_name MapPath
 extends Path2D
 
-signal traversal_finished
-
 @export var start: NodePath:
 	get:
 		return start # TODOConverter40 Non existent get function 
@@ -64,7 +62,7 @@ func _get_configuration_warnings():
 	return ""
 
 
-func traverse_path(player: Node2D, traverse_backwards: bool):
+func traverse_path(player: Node2D, traverse_backwards: bool) -> Vector2:
 	# TODO: Set player to start or end (based checked traverse_backwards)
 	var traversion_start := start if not traverse_backwards else end
 	var progress_ratio := 0.0 if not traverse_backwards else 1.0
@@ -78,7 +76,7 @@ func traverse_path(player: Node2D, traverse_backwards: bool):
 	tween.play()
 	await tween.finished
 	# TODO: Emit signal traversion_completed
-	emit_signal("traversal_finished")
+	return curve.get_point_position(curve.point_count-1 if not traverse_backwards else 0)
 
 
 func _reparent(child: Node2D, new_parent: Node2D):

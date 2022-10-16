@@ -1,9 +1,6 @@
 extends Node2D
 
 
-signal _move_completed
-
-
 ## Holds all previously calculated shortest path maps for the respective key.
 ## key: LevelIndicator.map_position
 ## value: { LevelIndicator.map_position: { shortest_distance: int, previous_pos: LevelIndicator.map_position } }
@@ -12,10 +9,15 @@ var _is_moving := false
 
 @onready var _level_indicators := get_tree().get_nodes_in_group("level_indicators")
 @onready var _map_paths: Array = get_tree().get_nodes_in_group("map_paths")
-@onready var _player := $Player
+@onready var _player: Node2D = $Player
 @onready var _player_position : int = PlayerData.map_position
 
 func _ready():
+	if PlayerData.map_position_vector == Vector2(-1, -1):
+		PlayerData.map_position_vector = (get_node("Paths/0 -> 1") as Path2D).curve.get_point_position(0)
+	_player.global_position = PlayerData.map_position_vector
+	var fadeInTweener := create_tween()
+	fadeInTweener.tween_property(_player, "modulate", Color.WHITE, 1)
 	for indicator in _level_indicators:
 		indicator.connect("clicked",Callable(self,"_on_LevelIndicator_clicked"))
 
@@ -25,8 +27,8 @@ func _on_LevelIndicator_clicked(level_indicator: LevelIndicator):
 		return
 	var current_indicator := _get_current_indicator()
 	if current_indicator != level_indicator:
-		_move_between(current_indicator, level_indicator)
-		await self._move_completed
+		_is_moving = true
+		await _move_between(current_indicator, level_indicator)
 	_is_moving = false
 	if level_indicator.scene_to_load:
 		$"/root/Transition".fade_to(level_indicator.scene_to_load)
@@ -42,25 +44,24 @@ func _get_current_indicator() -> LevelIndicator:
 
 
 func _move_between(current_indicator: LevelIndicator, next_indicator: LevelIndicator):
-	_is_moving = true
 	if not _shortest_path_maps.has(_player_position):
 		_create_shortest_path_map(current_indicator)
 	var shortest_path_map = _shortest_path_maps[_player_position]
 	
 	var traversions = _get_path_traversion_between(current_indicator, next_indicator, shortest_path_map)
 	if traversions.size() == 0:
-		print("No path between %s and %s exists." % [current_indicator.map_position, next_indicator.map_position])
+		printerr("No path between %s and %s exists." % [current_indicator.map_position, next_indicator.map_position])
 		emit_signal("_move_completed")
 		return
+	var player_end_position := _player.global_position
 	for i in traversions.size():
 		var path := traversions[i].path as MapPath
 		var traverse_backwards := traversions[i].traverse_backwards as bool
-		path.traverse_path(_player, traverse_backwards)
-		await path.traversal_finished
+		player_end_position = await path.traverse_path(_player, traverse_backwards)
 	
+	PlayerData.map_position_vector = player_end_position
 	PlayerData.map_position = next_indicator.map_position
 	_player_position = next_indicator.map_position
-	emit_signal("_move_completed")
 
 
 ## Uses dijkstra algortihm to create a shortest path map for the source indicator
@@ -133,5 +134,3 @@ func _get_path_traversion_between(source: LevelIndicator, target: LevelIndicator
 				break
 		current_pos = previous_pos
 	return paths
-
-

@@ -2,3 +2,6 @@ res://levels/map/map.tscn
 res://globals/interactions.tscn
 res://levels/gallery/gallery_level.tscn
 res://levels/map/map.gd
+res://globals/player_data.gd
+res://levels/map/map_path.gd
+res://globals/data_repository.gd

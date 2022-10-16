@@ -119,7 +119,6 @@ func _parse_contents(parser: XMLParser):
 
 func _create_data_info_entry(key: String):
 	var key_parts := key.split("/")
-	print(key)
 	var info_to_add = {"path": "%s/%s" % [base_url, key], "size": -1}
 	var reference_dict := _data_info
 	for i in key_parts.size():
