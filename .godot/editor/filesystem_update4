@@ -1,5 +1,4 @@
-res://main.tscn
-res://level_indicator.tscn
-res://level_indicator.gd
-res://map_path.gd
-res://map.tscn
+res://levels/map/map.tscn
+res://globals/interactions.tscn
+res://levels/gallery/gallery_level.tscn
+res://levels/map/map.gd

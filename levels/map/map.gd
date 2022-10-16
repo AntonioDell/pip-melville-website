@@ -18,8 +18,6 @@ var _is_moving := false
 func _ready():
 	for indicator in _level_indicators:
 		indicator.connect("clicked",Callable(self,"_on_LevelIndicator_clicked"))
-		if indicator.map_position == _player_position:
-			_player.global_position = indicator.global_position
 
 
 func _on_LevelIndicator_clicked(level_indicator: LevelIndicator):

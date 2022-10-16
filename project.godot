@@ -17,12 +17,12 @@ _global_script_classes=[{
 "base": "CharacterBody2D",
 "class": &"LevelIndicator",
 "language": &"GDScript",
-"path": "res://level_indicator.gd"
+"path": "res://levels/map/level_indicator.gd"
 }, {
 "base": "Path2D",
 "class": &"MapPath",
 "language": &"GDScript",
-"path": "res://map_path.gd"
+"path": "res://levels/map/map_path.gd"
 }]
 _global_script_class_icons={
 "GalleryFrame": "",
@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="pip-melville-website"
-run/main_scene="res://main.tscn"
+run/main_scene="res://levels/map/map.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"
 

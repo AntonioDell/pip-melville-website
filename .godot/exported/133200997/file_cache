@@ -1,0 +1,13 @@
+res://globals/config.tscn::732e2816697483ddd8414fb6e75a8528::1663309036::res://.godot/exported/133200997/export-0aeeb25c9014c708dd949d63e5b87816-config.scn
+res://globals/data_repository.tscn::988198bf569897bc74020b2d6c356816::1663306769::res://.godot/exported/133200997/export-bc4de49d25c05e200bd2d721cce4bec0-data_repository.scn
+res://globals/interactions.tscn::df3f5d7865497a31e0178258b5468a26::1663305309::res://.godot/exported/133200997/export-6767d581b4c511843c3d275f792cbe8f-interactions.scn
+res://globals/player_data.tscn::237d5af66bbb6939e0fab10be34c30c7::1664096131::res://.godot/exported/133200997/export-e895badbfe24ae975504442796b6167f-player_data.scn
+res://globals/transition.tscn::321d8411edeedf9fea8f108f0475aae3::1663305309::res://.godot/exported/133200997/export-bee9b93ee75694efae700369a3c86e16-transition.scn
+res://levels/gallery/gallery_frame.tscn::badeb2199145cce61b23d1d68a71aae5::1664948900::res://.godot/exported/133200997/export-d9f1b725f1c73c264ba97bcdf286ab4f-gallery_frame.scn
+res://levels/gallery/gallery_level.tscn::17ab669147661f04701ce37133045655::1664948900::res://.godot/exported/133200997/export-a7879c8310bb580fc8f6c5cc379e33a2-gallery_level.scn
+res://levels/gallery/rail_animation_test.tscn::b88407191bb2bc788dec8a78b9937c1a::1664608863::res://.godot/exported/133200997/export-9080173daa6a295d0b0a88123bf9c7f2-rail_animation_test.scn
+res://default_env.tres::a52129f071fffbd20a6013a6c0edec1e::1663305309::res://.godot/exported/133200997/export-7cf3fd67ad9f55210191d77b582b8209-default_env.res
+res://level_indicator.tscn::75b90fecf2e09064f688bf6b8c583f4d::1665813259::res://.godot/exported/133200997/export-1e1cb7e9453e8db61b7b9c0544e2a8cf-level_indicator.scn
+res://main.tscn::c9c52bc44287801d25875249da1be692::1665813259::res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn
+res://map.tscn::ddc9706888d693c07fdbf8c6b6d178ef::1665813323::res://.godot/exported/133200997/export-e6d97c4feb736ad10c0d43b3f8310ea4-map.scn
+res://map_path.tscn::4b1e0ba6eaab1ad325842437d7c01386::1664948879::res://.godot/exported/133200997/export-89a256c57fc2d6a1d8db8b124dcb2e1c-map_path.scn

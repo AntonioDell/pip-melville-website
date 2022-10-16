@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhljkiuo67f0k"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://level_indicator.gd" id="1"]
+[ext_resource type="Script" path="res://levels/map/level_indicator.gd" id="1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tt13o"]
 size = Vector2(68, 66)

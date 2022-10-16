@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy58bg0hrd4ru"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://map_path.gd" id="1"]
+[ext_resource type="Script" path="res://levels/map/map_path.gd" id="1"]
 
 [sub_resource type="Curve2D" id="1"]
 
