@@ -1,24 +1,45 @@
-[gd_scene load_steps=6 format=3 uid="uid://dm4nhjfpckptk"]
+[gd_scene load_steps=12 format=3 uid="uid://dm4nhjfpckptk"]
 
 [ext_resource type="Script" path="res://levels/gallery/gallery_level.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://c63js13krq560" path="res://levels/gallery/gallery_frame.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://v78tn7kef0w2" path="res://levels/gallery/brick_1.png" id="2_jojel"]
+[ext_resource type="Texture2D" uid="uid://cqqw2uk172f2p" path="res://levels/gallery/frame_1.png" id="3_fw7q8"]
+[ext_resource type="Texture2D" uid="uid://b4pclbd25fpv7" path="res://levels/gallery/brick_2.png" id="3_hqihs"]
 [ext_resource type="PackedScene" uid="uid://dkid7tq2ada0x" path="res://levels/gallery/lever.tscn" id="3_ngd8j"]
+[ext_resource type="Texture2D" uid="uid://c7qdfgj06emye" path="res://levels/gallery/brick_3.png" id="4_7fw4b"]
+[ext_resource type="Texture2D" uid="uid://cf1ap674s585y" path="res://levels/gallery/frame_2.png" id="4_slodd"]
+[ext_resource type="Texture2D" uid="uid://ilmx6fu4p2hb" path="res://levels/gallery/frame_3.png" id="5_q2sbo"]
 
 [sub_resource type="Gradient" id="1"]
 offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.296875, 0.21106, 0.21106, 1)
+colors = PackedColorArray(1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="2"]
 gradient = SubResource("1")
-fill_from = Vector2(0.0125, 0)
+width = 1100
+height = 1100
 
 [node name="Level1" type="Node"]
 script = ExtResource("1")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(384, 512)
-scale = Vector2(12, 16)
 texture = SubResource("2")
+
+[node name="Brick1" type="Sprite2D" parent="Background"]
+position = Vector2(-275, -434)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_jojel")
+
+[node name="Brick2" type="Sprite2D" parent="Background"]
+position = Vector2(71, -395)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_hqihs")
+
+[node name="Brick3" type="Sprite2D" parent="Background"]
+position = Vector2(-229, 138)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_7fw4b")
 
 [node name="FramePositions" type="Node2D" parent="."]
 
@@ -105,17 +126,34 @@ position = Vector2(1404, 320)
 [node name="GalleryFrame1" parent="Images" instance=ExtResource("2")]
 position = Vector2(168, 256)
 
+[node name="Frame" parent="Images/GalleryFrame1" index="2"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_fw7q8")
+
 [node name="GalleryFrame2" parent="Images" instance=ExtResource("2")]
 position = Vector2(384, 256)
+
+[node name="Frame" parent="Images/GalleryFrame2" index="2"]
+position = Vector2(4.5, -17.25)
+rotation = -1.5708
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_slodd")
+offset = Vector2(-203, -11.3333)
 
 [node name="GalleryFrame3" parent="Images" instance=ExtResource("2")]
 position = Vector2(600, 256)
 
+[node name="Frame" parent="Images/GalleryFrame3" index="2"]
+position = Vector2(3.00002, -11)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_q2sbo")
+offset = Vector2(5.33331, 188)
+
 [node name="Lever" parent="." instance=ExtResource("3_ngd8j")]
-position = Vector2(384, 844)
+position = Vector2(381, 899)
 is_blocked = true
 max_drag_length = 250.0
-max_rotation = 50.0
+max_rotation = 75.0
 rotation_easing = 1.81886
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -126,14 +164,19 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -88.0
-offset_top = -72.0
-offset_right = 88.0
-offset_bottom = -41.0
+offset_left = -104.0
+offset_top = -93.0
+offset_right = 104.0
+offset_bottom = -47.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Welcome to Level 1!
 Press ESC to return to Map"
 fit_content_height = true
 
 [connection signal="triggered" from="Lever" to="." method="_on_Lever_triggered"]
+
+[editable path="Images/GalleryFrame1"]
+[editable path="Images/GalleryFrame2"]
+[editable path="Images/GalleryFrame3"]

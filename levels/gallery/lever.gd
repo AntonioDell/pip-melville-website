@@ -14,7 +14,7 @@ signal triggered(direction: Vector2)
 var _is_dragged := false
 var _is_snapping_back := false
 var _drag_start_position := -Vector2.ONE
-var _mouse_mode: Input.MouseMode
+var _mouse_mode: int
 
 
 @onready var _handle: Node2D = $Handle
@@ -54,12 +54,11 @@ func _wiggle():
 
 func _rotate_handle():
 	var delta_x := get_global_mouse_position().x - _drag_start_position.x
-	var drag_ratio = inverse_lerp(0, max_drag_length, abs(delta_x))
+	var drag_ratio = ease(clamp(inverse_lerp(0, max_drag_length, abs(delta_x)), 0, 1), rotation_easing)
 	var lerped_angle = lerp_angle(0, deg_to_rad(max_rotation), drag_ratio)
-	var eased_angle = clamp(ease(lerped_angle, rotation_easing), 0, deg_to_rad(max_rotation))
-	_handle.rotation = sign(delta_x) * eased_angle
+	_handle.rotation = sign(delta_x) * lerped_angle
 	
-	if abs(_handle.rotation) >= deg_to_rad(max_rotation):
+	if abs(_handle.rotation) >= deg_to_rad(max_rotation-0.01):
 		_is_dragged = false
 		_is_snapping_back = true
 		Input.warp_mouse(_drag_start_position)
