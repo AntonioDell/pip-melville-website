@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dtxuit4i47dfg"]
+[gd_scene load_steps=24 format=3 uid="uid://dtxuit4i47dfg"]
 
 [ext_resource type="Script" path="res://levels/map/map.gd" id="1_8rb8i"]
 [ext_resource type="Texture2D" uid="uid://62uwa30gwbcp" path="res://levels/map/stepstone_1.png" id="2_1qn43"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cjx2btnv47wmb" path="res://levels/map/startpoint.png" id="8_5txna"]
 [ext_resource type="PackedScene" path="res://levels/map/map_path.tscn" id="8_w4pyx"]
 [ext_resource type="Texture2D" uid="uid://bvy7laf0uaick" path="res://levels/map/meadow_2.png" id="10_lnxrh"]
+[ext_resource type="Texture2D" uid="uid://btdralk60uwpp" path="res://levels/map/tower_ruin.png" id="11_ph1gb"]
 
 [sub_resource type="Gradient" id="1"]
 offsets = PackedFloat32Array(0)
@@ -35,21 +36,24 @@ sources/0 = SubResource("TileSetAtlasSource_km60a")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8x0fb"]
 size = Vector2(102, 121)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bitmn"]
+size = Vector2(218, 228)
+
 [sub_resource type="Curve2D" id="Curve2D_xicc0"]
 _data = {
-"points": PackedVector2Array(60.5811, -28.0633, -60.5811, 28.0633, 336, 974, -23.8089, 95.7637, 23.8089, -95.7637, 155, 849, 0, 0, 0, 0, 360, 717)
+"points": PackedVector2Array(60.5811, -28.0633, -60.5811, 28.0633, 316, 972, -23.8089, 95.7637, 23.8089, -95.7637, 155, 849, 0, 0, 0, 0, 405, 747)
 }
 point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_3ch86"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 358, 715, 262, 114, -262, -114, 363, 493)
+"points": PackedVector2Array(-454.394, 9.92126, 454.394, -9.92126, 404, 747, 48.0546, 16.5024, -48.0546, -16.5024, 577, 473, -90.0097, 91.8761, 90.0097, -91.8761, 511, 228)
 }
-point_count = 2
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_gaawe"]
 _data = {
-"points": PackedVector2Array(-36, 291, 36, -291, 445, 584, -69, 33, 69, -33, 212, 503)
+"points": PackedVector2Array(256, -75, -256, 75, 492, 616, 281, 63, -281, -63, 181, 319)
 }
 point_count = 2
 
@@ -72,7 +76,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("10_lnxrh")
 
 [node name="Meadow3" type="Sprite2D" parent="Background"]
-position = Vector2(155, 143)
+position = Vector2(291, 295)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_0wvnu")
 
@@ -161,7 +165,7 @@ scale = Vector2(0.165, 0.165)
 texture = ExtResource("3_lxsjr")
 
 [node name="Stepstone14" type="Sprite2D" parent="Stepstones"]
-position = Vector2(340, 620)
+position = Vector2(260, 659)
 rotation = -1.29577
 scale = Vector2(0.165, 0.165)
 texture = ExtResource("7_6qmku")
@@ -173,7 +177,7 @@ scale = Vector2(0.165, 0.165)
 texture = ExtResource("7_6qmku")
 
 [node name="Stepstone16" type="Sprite2D" parent="Stepstones"]
-position = Vector2(192, 605)
+position = Vector2(168, 482)
 rotation = -2.54705
 scale = Vector2(0.165, 0.165)
 texture = ExtResource("7_6qmku")
@@ -193,25 +197,26 @@ scale = Vector2(0.174, 0.174)
 texture = ExtResource("8_5txna")
 
 [node name="LevelIndicator1" parent="Indicators" instance=ExtResource("4_lwtcx")]
-position = Vector2(359, 717)
-rotation = 0.785398
+position = Vector2(446, 622)
 scene_to_load = ExtResource("6_jdus0")
 map_position = 1
 
+[node name="CollisionShape2D" parent="Indicators/LevelIndicator1" index="0"]
+shape = SubResource("RectangleShape2D_bitmn")
+
 [node name="IndicatorSprite" parent="Indicators/LevelIndicator1" index="1"]
-texture = ExtResource("7_y30gw")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_ph1gb")
 
 [node name="LevelIndicator2" parent="Indicators" instance=ExtResource("4_lwtcx")]
-position = Vector2(365, 491)
-rotation = 1.5708
+position = Vector2(511, 186)
 map_position = 2
 
 [node name="IndicatorSprite" parent="Indicators/LevelIndicator2" index="1"]
 texture = ExtResource("7_y30gw")
 
 [node name="LevelIndicator3" parent="Indicators" instance=ExtResource("4_lwtcx")]
-position = Vector2(123, 631)
-rotation = 4.71239
+position = Vector2(93, 399)
 map_position = 3
 
 [node name="IndicatorSprite" parent="Indicators/LevelIndicator3" index="1"]

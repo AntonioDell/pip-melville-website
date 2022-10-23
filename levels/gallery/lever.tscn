@@ -23,6 +23,7 @@ texture = ExtResource("2_n5bmn")
 
 [node name="Handle" type="Sprite2D" parent="."]
 position = Vector2(-4, -62)
+scale = Vector2(0.533898, 0.957692)
 texture = ExtResource("3_yre4u")
 offset = Vector2(3, -118)
 

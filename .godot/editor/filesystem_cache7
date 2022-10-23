@@ -1,5 +1,5 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1666517630
+::res://::1666552347
 default_env.tres::Environment::-1::1663305309::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1666423513::0::1::::<><>::
 icon.png::CompressedTexture2D::2299285674634509664::1660250542::1665918202::1::::<><>::
@@ -20,7 +20,7 @@ player_data.tscn::PackedScene::9172527970325860740::1664096131::0::1::::<><>::re
 transition.gd::GDScript::-1::1663312155::0::1::::<>CanvasLayer<>::
 transition.tscn::PackedScene::-1::1663305309::0::1::::<><>::res://globals/transition.gd
 ::res://levels/::1666515857
-::res://levels/gallery/::1666517622
+::res://levels/gallery/::1666550801
 brick_1.png::CompressedTexture2D::1542064128071298195::1666517301::1666517301::1::::<><>::
 brick_2.png::CompressedTexture2D::4453003951650248142::1666517301::1666517301::1::::<><>::
 brick_3.png::CompressedTexture2D::7052105818036843220::1666517301::1666517301::1::::<><>::
@@ -31,18 +31,18 @@ frame_4.png::CompressedTexture2D::6420263450943888022::1666510823::1666510823::1
 gallery_frame.gd::GDScript::-1::1664785958::0::1::::GalleryFrame<>Node2D<>::
 gallery_frame.tscn::PackedScene::7007078103843430015::1666514136::0::1::::<><>::uid://bf16v3lrtnpuh<>res://levels/gallery/gallery_frame.gd
 gallery_level.gd::GDScript::-1::1665908642::0::1::::<>Node<>::
-gallery_level.tscn::PackedScene::8062197432185512028::1666517481::0::1::::<><>::res://levels/gallery/gallery_level.gd<>uid://c63js13krq560<>uid://v78tn7kef0w2<>uid://cqqw2uk172f2p<>uid://b4pclbd25fpv7<>uid://dkid7tq2ada0x<>uid://c7qdfgj06emye<>uid://cf1ap674s585y<>uid://ilmx6fu4p2hb
+gallery_level.tscn::PackedScene::8062197432185512028::1666550801::0::1::::<><>::res://levels/gallery/gallery_level.gd<>uid://c63js13krq560<>uid://v78tn7kef0w2<>uid://cqqw2uk172f2p<>uid://b4pclbd25fpv7<>uid://dkid7tq2ada0x<>uid://c7qdfgj06emye<>uid://cf1ap674s585y<>uid://ilmx6fu4p2hb
 lever.gd::GDScript::-1::1666514155::0::1::::<>Node2D<>::
-lever.tscn::PackedScene::7877905829762759905::1666514136::0::1::::<><>::res://levels/gallery/lever.gd<>uid://cw2t5qw3v3qjc<>uid://c6heabyho2ufr<>uid://dml84noisl7c
+lever.tscn::PackedScene::7877905829762759905::1666550801::0::1::::<><>::res://levels/gallery/lever.gd<>uid://cw2t5qw3v3qjc<>uid://c6heabyho2ufr<>uid://dml84noisl7c
 lever_back.png::CompressedTexture2D::6373942199122911908::1666512279::1666512483::1::::<><>::
 lever_front.png::CompressedTexture2D::236067425989226622::1666512751::1666512483::1::::<><>::
 lever_handle.png::CompressedTexture2D::6963389122351187619::1666512776::1666512780::1::::<><>::
 rail_animation_test.tscn::PackedScene::2389960412201712430::1664608863::0::1::::<><>::uid://7015tnpv5ruu
-::res://levels/map/::1666517630
+::res://levels/map/::1666552347
 level_indicator.gd::GDScript::-1::1665813038::0::1::::LevelIndicator<>CharacterBody2D<>::
 level_indicator.tscn::PackedScene::1247748080165057967::1665910333::0::1::::<><>::res://levels/map/level_indicator.gd
 map.gd::GDScript::-1::1665898314::0::1::::<>Node2D<>::
-map.tscn::PackedScene::8541560437898341068::1666517623::0::1::::<><>::res://levels/map/map.gd<>uid://62uwa30gwbcp<>uid://b2e5yopoqnsas<>uid://bf11345i3oq67<>uid://clf2ju6qidwen<>uid://r1oh1igoaymx<>uid://dm4nhjfpckptk<>uid://7015tnpv5ruu<>uid://cjx2btnv47wmb<>res://levels/map/map_path.tscn<>uid://bvy7laf0uaick
+map.tscn::PackedScene::8541560437898341068::1666550801::0::1::::<><>::res://levels/map/map.gd<>uid://62uwa30gwbcp<>uid://b2e5yopoqnsas<>uid://bf11345i3oq67<>uid://clf2ju6qidwen<>uid://r1oh1igoaymx<>uid://dm4nhjfpckptk<>uid://beansnpswxo2x<>uid://7015tnpv5ruu<>uid://cjx2btnv47wmb<>res://levels/map/map_path.tscn<>uid://bvy7laf0uaick
 map_path.gd::GDScript::-1::1665898063::0::1::::MapPath<>Path2D<>::
 map_path.tscn::PackedScene::-1::1665893806::0::1::::<><>::res://levels/map/map_path.gd
 meadow_1.png::CompressedTexture2D::4291642100929903298::1666515854::1666515857::1::::<><>::
@@ -52,6 +52,7 @@ startpoint.png::CompressedTexture2D::5453663812090759201::1665812825::1666517623
 stepstone_1.png::CompressedTexture2D::2232846023859148039::1665894059::1665918202::1::::<><>::
 stepstone_2.png::CompressedTexture2D::2792668937452839598::1665894059::1665918202::1::::<><>::
 stepstone_3.png::CompressedTexture2D::2667998230265259005::1666517603::1666517630::1::::<><>::
+tower_ruin.png::CompressedTexture2D::3727234629602539893::1666552343::1666552347::1::::<><>::
 ::res://raw/::1665918202
 empty_frame.png::CompressedTexture2D::2792959940381554531::1662878148::1665918202::1::::<><>::
 ::res://static/::1665918202
