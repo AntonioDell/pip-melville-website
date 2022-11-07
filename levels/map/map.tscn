@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dtxuit4i47dfg"]
+[gd_scene load_steps=20 format=3 uid="uid://dtxuit4i47dfg"]
 
 [ext_resource type="Script" path="res://levels/map/map.gd" id="1_8rb8i"]
 [ext_resource type="Texture2D" uid="uid://62uwa30gwbcp" path="res://levels/map/stepstone_1.png" id="2_1qn43"]
@@ -6,13 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://bf11345i3oq67" path="res://levels/map/stepstone_2.png" id="3_lxsjr"]
 [ext_resource type="Texture2D" uid="uid://clf2ju6qidwen" path="res://levels/map/meadow_3.png" id="4_0wvnu"]
 [ext_resource type="PackedScene" uid="uid://r1oh1igoaymx" path="res://levels/map/level_indicator.tscn" id="4_lwtcx"]
-[ext_resource type="PackedScene" uid="uid://dm4nhjfpckptk" path="res://levels/gallery/gallery_level.tscn" id="6_jdus0"]
-[ext_resource type="Texture2D" uid="uid://beansnpswxo2x" path="res://levels/map/stepstone_3.png" id="7_6qmku"]
-[ext_resource type="Texture2D" uid="uid://7015tnpv5ruu" path="res://icon.png" id="7_y30gw"]
+[ext_resource type="PackedScene" path="res://levels/gallery/gallery_level.tscn" id="6_jdus0"]
 [ext_resource type="Texture2D" uid="uid://cjx2btnv47wmb" path="res://levels/map/startpoint.png" id="8_5txna"]
 [ext_resource type="PackedScene" path="res://levels/map/map_path.tscn" id="8_w4pyx"]
 [ext_resource type="Texture2D" uid="uid://bvy7laf0uaick" path="res://levels/map/meadow_2.png" id="10_lnxrh"]
 [ext_resource type="Texture2D" uid="uid://btdralk60uwpp" path="res://levels/map/tower_ruin.png" id="11_ph1gb"]
+[ext_resource type="Texture2D" uid="uid://d363073dokdws" path="res://levels/map/ghost_1.png" id="14_83e1t"]
+[ext_resource type="Texture2D" uid="uid://40l11rrlhgyt" path="res://levels/map/ghost_2.png" id="15_dyur3"]
 
 [sub_resource type="Gradient" id="1"]
 offsets = PackedFloat32Array(0)
@@ -23,16 +23,6 @@ gradient = SubResource("1")
 width = 1100
 height = 1100
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q84ef"]
-load_path = "res://.godot/imported/meadow_1.png-be8bebb62c1fce3679df0da1dd80c795.ctex"
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_km60a"]
-texture = SubResource("CompressedTexture2D_q84ef")
-
-[sub_resource type="TileSet" id="TileSet_tgitu"]
-tile_size = Vector2i(64, 64)
-sources/0 = SubResource("TileSetAtlasSource_km60a")
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8x0fb"]
 size = Vector2(102, 121)
 
@@ -41,21 +31,16 @@ size = Vector2(218, 228)
 
 [sub_resource type="Curve2D" id="Curve2D_xicc0"]
 _data = {
-"points": PackedVector2Array(60.5811, -28.0633, -60.5811, 28.0633, 316, 972, -23.8089, 95.7637, 23.8089, -95.7637, 155, 849, 0, 0, 0, 0, 405, 747)
+"points": PackedVector2Array(60.5811, -28.0633, -60.5811, 28.0633, 378, 990, -23.8089, 95.7637, 23.8089, -95.7637, 155, 849, 0, 0, 0, 0, 447, 787)
 }
 point_count = 3
 
-[sub_resource type="Curve2D" id="Curve2D_3ch86"]
-_data = {
-"points": PackedVector2Array(-454.394, 9.92126, 454.394, -9.92126, 404, 747, 48.0546, 16.5024, -48.0546, -16.5024, 577, 473, -90.0097, 91.8761, 90.0097, -91.8761, 511, 228)
-}
-point_count = 3
-
-[sub_resource type="Curve2D" id="Curve2D_gaawe"]
-_data = {
-"points": PackedVector2Array(256, -75, -256, 75, 492, 616, 281, 63, -281, -63, 181, 319)
-}
-point_count = 2
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_qqlbe"]
+frames = 2
+frame_0/texture = ExtResource("14_83e1t")
+frame_0/duration = 0.5
+frame_1/texture = ExtResource("15_dyur3")
+frame_1/duration = 0.5
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_8rb8i")
@@ -70,8 +55,19 @@ scale = Vector2(0.2, 0.2)
 skew = 0.00276566
 texture = ExtResource("2_r085e")
 
+[node name="Meadow5" type="Sprite2D" parent="Background"]
+position = Vector2(-212, 131)
+scale = Vector2(0.2, 0.2)
+skew = 0.00276566
+texture = ExtResource("2_r085e")
+
 [node name="Meadow2" type="Sprite2D" parent="Background"]
 position = Vector2(-154, -3)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_lnxrh")
+
+[node name="Meadow6" type="Sprite2D" parent="Background"]
+position = Vector2(199, -221)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("10_lnxrh")
 
@@ -80,9 +76,25 @@ position = Vector2(291, 295)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_0wvnu")
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_tgitu")
-format = 2
+[node name="Meadow4" type="Sprite2D" parent="Background"]
+position = Vector2(-209, 461)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_0wvnu")
+
+[node name="Meadow7" type="Sprite2D" parent="Background"]
+position = Vector2(-149, -358)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_0wvnu")
+
+[node name="Meadow8" type="Sprite2D" parent="Background"]
+position = Vector2(-36, -156)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_0wvnu")
+
+[node name="Meadow9" type="Sprite2D" parent="Background"]
+position = Vector2(304, 19)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_0wvnu")
 
 [node name="Stepstones" type="Node2D" parent="."]
 
@@ -100,12 +112,6 @@ texture = ExtResource("2_1qn43")
 
 [node name="Stepstone2" type="Sprite2D" parent="Stepstones"]
 position = Vector2(176, 926)
-rotation = -1.17959
-scale = Vector2(0.165, 0.165)
-texture = ExtResource("3_lxsjr")
-
-[node name="Stepstone12" type="Sprite2D" parent="Stepstones"]
-position = Vector2(199, 973)
 rotation = -1.17959
 scale = Vector2(0.165, 0.165)
 texture = ExtResource("3_lxsjr")
@@ -128,26 +134,20 @@ rotation = -0.881866
 scale = Vector2(0.164706, 0.164706)
 texture = ExtResource("2_1qn43")
 
-[node name="Stepstone6" type="Sprite2D" parent="Stepstones"]
-position = Vector2(175, 813)
-rotation = -0.378214
-scale = Vector2(0.165, 0.165)
-texture = ExtResource("3_lxsjr")
-
 [node name="Stepstone7" type="Sprite2D" parent="Stepstones"]
-position = Vector2(249, 777)
+position = Vector2(297, 808)
 rotation = -1.93157
 scale = Vector2(0.164706, 0.164706)
 texture = ExtResource("2_1qn43")
 
 [node name="Stepstone8" type="Sprite2D" parent="Stepstones"]
-position = Vector2(209, 764)
+position = Vector2(254, 783)
 rotation = 0.769189
 scale = Vector2(0.165, 0.165)
 texture = ExtResource("3_lxsjr")
 
 [node name="Stepstone9" type="Sprite2D" parent="Stepstones"]
-position = Vector2(309, 760)
+position = Vector2(389, 810)
 rotation = -0.676373
 scale = Vector2(0.164706, 0.164706)
 texture = ExtResource("2_1qn43")
@@ -159,97 +159,53 @@ scale = Vector2(0.164706, 0.164706)
 texture = ExtResource("2_1qn43")
 
 [node name="Stepstone10" type="Sprite2D" parent="Stepstones"]
-position = Vector2(262, 732)
+position = Vector2(348, 782)
 rotation = -0.126811
 scale = Vector2(0.165, 0.165)
 texture = ExtResource("3_lxsjr")
 
-[node name="Stepstone14" type="Sprite2D" parent="Stepstones"]
-position = Vector2(260, 659)
-rotation = -1.29577
-scale = Vector2(0.165, 0.165)
-texture = ExtResource("7_6qmku")
-
-[node name="Stepstone15" type="Sprite2D" parent="Stepstones"]
-position = Vector2(248, 558)
-rotation = 1.18283
-scale = Vector2(0.165, 0.165)
-texture = ExtResource("7_6qmku")
-
-[node name="Stepstone16" type="Sprite2D" parent="Stepstones"]
-position = Vector2(168, 482)
-rotation = -2.54705
-scale = Vector2(0.165, 0.165)
-texture = ExtResource("7_6qmku")
-
 [node name="Indicators" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
-[node name="LevelIndicator0" parent="Indicators" instance=ExtResource("4_lwtcx")]
+[node name="StartIndicator" parent="Indicators" instance=ExtResource("4_lwtcx")]
 position = Vector2(316, 973)
 
-[node name="CollisionShape2D" parent="Indicators/LevelIndicator0" index="0"]
+[node name="CollisionShape2D" parent="Indicators/StartIndicator" index="0"]
 position = Vector2(0, -75.5)
 shape = SubResource("RectangleShape2D_8x0fb")
 
-[node name="IndicatorSprite" parent="Indicators/LevelIndicator0" index="1"]
+[node name="IndicatorSprite" parent="Indicators/StartIndicator" index="1"]
 position = Vector2(0, -74)
 scale = Vector2(0.174, 0.174)
 texture = ExtResource("8_5txna")
 
-[node name="LevelIndicator1" parent="Indicators" instance=ExtResource("4_lwtcx")]
+[node name="GalleryIndicator" parent="Indicators" instance=ExtResource("4_lwtcx")]
 position = Vector2(446, 622)
 scene_to_load = ExtResource("6_jdus0")
 map_position = 1
 
-[node name="CollisionShape2D" parent="Indicators/LevelIndicator1" index="0"]
+[node name="CollisionShape2D" parent="Indicators/GalleryIndicator" index="0"]
 shape = SubResource("RectangleShape2D_bitmn")
 
-[node name="IndicatorSprite" parent="Indicators/LevelIndicator1" index="1"]
+[node name="IndicatorSprite" parent="Indicators/GalleryIndicator" index="1"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_ph1gb")
 
-[node name="LevelIndicator2" parent="Indicators" instance=ExtResource("4_lwtcx")]
-position = Vector2(511, 186)
-map_position = 2
-
-[node name="IndicatorSprite" parent="Indicators/LevelIndicator2" index="1"]
-texture = ExtResource("7_y30gw")
-
-[node name="LevelIndicator3" parent="Indicators" instance=ExtResource("4_lwtcx")]
-position = Vector2(93, 399)
-map_position = 3
-
-[node name="IndicatorSprite" parent="Indicators/LevelIndicator3" index="1"]
-texture = ExtResource("7_y30gw")
-
 [node name="Paths" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="0 -> 1" parent="Paths" instance=ExtResource("8_w4pyx")]
 curve = SubResource("Curve2D_xicc0")
-start = NodePath("../../Indicators/LevelIndicator0")
-end = NodePath("../../Indicators/LevelIndicator1")
+start = NodePath("../../Indicators/StartIndicator")
+end = NodePath("../../Indicators/GalleryIndicator")
 is_two_way = true
-
-[node name="1 -> 2" parent="Paths" instance=ExtResource("8_w4pyx")]
-curve = SubResource("Curve2D_3ch86")
-start = NodePath("../../Indicators/LevelIndicator1")
-end = NodePath("../../Indicators/LevelIndicator2")
-is_two_way = true
-
-[node name="1 -> 3" parent="Paths" instance=ExtResource("8_w4pyx")]
-position = Vector2(-88, 129)
-curve = SubResource("Curve2D_gaawe")
-start = NodePath("../../Indicators/LevelIndicator1")
-end = NodePath("../../Indicators/LevelIndicator3")
-is_two_way = true
+metadata/_edit_lock_ = true
 
 [node name="Player" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(336, 974)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_y30gw")
+position = Vector2(337, 1038)
+scale = Vector2(0.25, 0.25)
+texture = SubResource("AnimatedTexture_qqlbe")
+offset = Vector2(0, -256)
 
-[editable path="Indicators/LevelIndicator0"]
-[editable path="Indicators/LevelIndicator1"]
-[editable path="Indicators/LevelIndicator2"]
-[editable path="Indicators/LevelIndicator3"]
+[editable path="Indicators/StartIndicator"]
+[editable path="Indicators/GalleryIndicator"]
