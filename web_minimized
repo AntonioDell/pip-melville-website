@@ -1,0 +1,41 @@
+{
+	"disabled_build_options": {
+		"disable_3d": true,
+		"disable_3d_physics": true,
+		"disable_navigation": true,
+		"openxr": false,
+		"rendering_device": false,
+		"vulkan": false
+	},
+	"disabled_classes": [
+		"AudioEffect",
+		"BaseMaterial3D",
+		"BoneMap",
+		"Curve3D",
+		"FogMaterial",
+		"Mesh",
+		"MeshLibrary",
+		"MultiMesh",
+		"NavigationAgent3D",
+		"NavigationObstacle3D",
+		"Node3D",
+		"Occluder3D",
+		"PanoramaSkyMaterial",
+		"ParticleProcessMaterial",
+		"PhysicalSkyMaterial",
+		"ProceduralSkyMaterial",
+		"Shape3D",
+		"SkeletonIK3D",
+		"SkeletonModification2D",
+		"SkeletonModification3D",
+		"SkeletonModificationStack2D",
+		"SkeletonModificationStack3D",
+		"SkeletonProfile",
+		"Skin",
+		"Sky",
+		"Texture3D",
+		"VisualShaderNode",
+		"World3D"
+	],
+	"type": "build_profile"
+}

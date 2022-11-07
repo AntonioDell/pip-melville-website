@@ -12,7 +12,7 @@ _global_script_classes=[{
 "base": "Node2D",
 "class": &"GalleryFrame",
 "language": &"GDScript",
-"path": "res://levels/gallery/gallery_frame.gd"
+"path": "res://levels/gallery/portrait.gd"
 }, {
 "base": "CharacterBody2D",
 "class": &"LevelIndicator",

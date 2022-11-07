@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://but4mdcfwx6vr"]
+
+[ext_resource type="Script" path="res://levels/gallery/frame.gd" id="1_h0mcy"]
+[ext_resource type="Texture2D" uid="uid://cxqa2h8qkf0fa" path="res://levels/gallery/frame_4.png" id="2_ktmwf"]
+
+[node name="Frame" type="Sprite2D"]
+script = ExtResource("1_h0mcy")
+
+[node name="TopLeftBoundary" type="Node2D" parent="."]
+
+[node name="TopRightBoundary" type="Node2D" parent="."]
+
+[node name="BottomLeftBoundary" type="Node2D" parent="."]
+
+[node name="BottomRightBoundary" type="Node2D" parent="."]
+
+[node name="TestSprite" type="Sprite2D" parent="."]
+position = Vector2(180, 217)
+texture = ExtResource("2_ktmwf")
+offset = Vector2(-180, -217)

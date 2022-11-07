@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c63js13krq560"]
+[gd_scene load_steps=8 format=3 uid="uid://cnmbjfuadwpfw"]
 
-[ext_resource type="Texture2D" uid="uid://bf16v3lrtnpuh" path="res://raw/empty_frame.png" id="1"]
-[ext_resource type="Script" path="res://levels/gallery/gallery_frame.gd" id="2"]
+[ext_resource type="Script" path="res://levels/gallery/portrait.gd" id="1_b1rue"]
+[ext_resource type="Texture2D" uid="uid://bf16v3lrtnpuh" path="res://raw/empty_frame.png" id="2_oodjw"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(192, 272)
@@ -62,19 +62,18 @@ _data = {
 
 [node name="GalleryFrame" type="CharacterBody2D"]
 input_pickable = true
-script = ExtResource("2")
+script = ExtResource("1_b1rue")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, 129.5)
 shape = SubResource("1")
 
 [node name="FramedPicture" type="Sprite2D" parent="."]
-position = Vector2(4, 1.5)
 offset = Vector2(0, 128)
 
 [node name="Frame" type="Sprite2D" parent="."]
 position = Vector2(4, 1.5)
-texture = ExtResource("1")
+texture = ExtResource("2_oodjw")
 offset = Vector2(0, 128)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

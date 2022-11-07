@@ -8,6 +8,6 @@ res://levels/gallery/gallery_level.tscn::90131f9eeeb0916319ab1f547b5ccda7::16665
 res://levels/gallery/lever.tscn::b7ec157532ca90842631cec3d142aa2c::1666550801::res://.godot/exported/133200997/export-af49abde4c40f47005bfb513488ff3b3-lever.scn
 res://levels/gallery/rail_animation_test.tscn::b88407191bb2bc788dec8a78b9937c1a::1664608863::res://.godot/exported/133200997/export-9080173daa6a295d0b0a88123bf9c7f2-rail_animation_test.scn
 res://levels/map/level_indicator.tscn::cec499419ac7b23fb55dd46e4160593b::1665910333::res://.godot/exported/133200997/export-89328697eae88bff77611a8a72a30324-level_indicator.scn
-res://levels/map/map.tscn::ba2a2d6fd086080bef1dba8a42493e5f::1666550801::res://.godot/exported/133200997/export-565a3792bc1b97ae8e441d653b83cc72-map.scn
+res://levels/map/map.tscn::afd60992dd4885223b4687c215990895::1666553067::res://.godot/exported/133200997/export-565a3792bc1b97ae8e441d653b83cc72-map.scn
 res://levels/map/map_path.tscn::5f147d0e9578f9d62faed3d3ac746085::1665893806::res://.godot/exported/133200997/export-dae18d4c84fa721ff0061322163ea386-map_path.scn
 res://default_env.tres::a52129f071fffbd20a6013a6c0edec1e::1663305309::res://.godot/exported/133200997/export-7cf3fd67ad9f55210191d77b582b8209-default_env.res
