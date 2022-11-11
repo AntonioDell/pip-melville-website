@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cqqw2uk172f2p" path="res://levels/gallery/assets/frame_1.png" id="1_xfxtc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v2clx"]
-size = Vector2(297, 215)
+size = Vector2(297.857, 261.429)
 
 [sub_resource type="Animation" id="Animation_q4xsg"]
 length = 0.001

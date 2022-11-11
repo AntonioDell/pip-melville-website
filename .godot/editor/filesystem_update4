@@ -1,9 +1,6 @@
+res://levels/gallery/gallery_level.tscn
+res://levels/gallery/gallery.gd
 res://levels/gallery/frame.tscn
 res://levels/gallery/portrait.tscn
 res://levels/map/map.tscn
 res://levels/map/player.tscn
-res://levels/gallery/frame.gd
-res://globals/data_repository.gd
-res://levels/gallery/gallery_level.tscn
-res://levels/gallery/frame_1.tscn
-res://levels/gallery/gallery.gd

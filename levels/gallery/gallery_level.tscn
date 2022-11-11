@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dktf2oe0yrl5n"]
+[gd_scene load_steps=14 format=3 uid="uid://dktf2oe0yrl5n"]
 
 [ext_resource type="Script" path="res://levels/gallery/gallery.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://v78tn7kef0w2" path="res://levels/gallery/assets/brick_1.png" id="2_d23av"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b4pclbd25fpv7" path="res://levels/gallery/assets/brick_2.png" id="3_upsi4"]
 [ext_resource type="Texture2D" uid="uid://c7qdfgj06emye" path="res://levels/gallery/assets/brick_3.png" id="4_ndlld"]
 [ext_resource type="Texture2D" uid="uid://cf1ap674s585y" path="res://levels/gallery/assets/frame_2.png" id="7_8r3mt"]
+[ext_resource type="Texture2D" uid="uid://cxqa2h8qkf0fa" path="res://levels/gallery/assets/frame_4.png" id="8_2t60i"]
 [ext_resource type="Texture2D" uid="uid://ilmx6fu4p2hb" path="res://levels/gallery/assets/frame_3.png" id="8_to1ep"]
 [ext_resource type="PackedScene" uid="uid://but4mdcfwx6vr" path="res://levels/gallery/frame.tscn" id="9_eq58k"]
 
@@ -22,7 +23,7 @@ height = 1100
 size = Vector2(369, 250)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y48uv"]
-size = Vector2(293, 392)
+size = Vector2(308.571, 397.143)
 
 [node name="Level1" type="Node"]
 script = ExtResource("1")
@@ -78,10 +79,10 @@ position = Vector2(-192, 320)
 [node name="Visible" type="Node2D" parent="FramePositions/TwoFrames"]
 
 [node name="1" type="Node2D" parent="FramePositions/TwoFrames/Visible"]
-position = Vector2(256, 258)
+position = Vector2(213, 258)
 
 [node name="2" type="Node2D" parent="FramePositions/TwoFrames/Visible"]
-position = Vector2(512, 258)
+position = Vector2(561, 258)
 
 [node name="Exit" type="Node2D" parent="FramePositions/TwoFrames"]
 
@@ -107,13 +108,13 @@ position = Vector2(-192, 320)
 [node name="Visible" type="Node2D" parent="FramePositions/ThreeFrames"]
 
 [node name="1" type="Node2D" parent="FramePositions/ThreeFrames/Visible"]
-position = Vector2(164, 256)
+position = Vector2(143, 257)
 
 [node name="2" type="Node2D" parent="FramePositions/ThreeFrames/Visible"]
 position = Vector2(384, 256)
 
 [node name="3" type="Node2D" parent="FramePositions/ThreeFrames/Visible"]
-position = Vector2(600, 256)
+position = Vector2(626, 256)
 
 [node name="Exit" type="Node2D" parent="FramePositions/ThreeFrames"]
 
@@ -126,33 +127,51 @@ position = Vector2(1180, 320)
 [node name="3" type="Node2D" parent="FramePositions/ThreeFrames/Exit"]
 position = Vector2(1404, 320)
 
-[node name="Images" type="Node2D" parent="."]
+[node name="Portraits" type="Node2D" parent="."]
 
-[node name="Portrait1" parent="Images" instance=ExtResource("9_eq58k")]
+[node name="Portrait1" parent="Portraits" instance=ExtResource("9_eq58k")]
+position = Vector2(-189.55, -224.75)
 scale = Vector2(0.7, 0.7)
 
-[node name="Portrait2" parent="Images" instance=ExtResource("9_eq58k")]
-position = Vector2(387, 0)
+[node name="CollisionShape2D" parent="Portraits/Portrait1/ClickArea" index="0"]
+position = Vector2(0.428558, -3.92859)
+scale = Vector2(1, 1)
+
+[node name="Portrait2" parent="Portraits" instance=ExtResource("9_eq58k")]
+position = Vector2(197.45, -224.75)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("7_8r3mt")
 
-[node name="ImageBoundaries" parent="Images/Portrait2" index="0"]
+[node name="ImageBoundaries" parent="Portraits/Portrait2" index="0"]
 polygon = PackedVector2Array(-159, -101, 189, -114, 193, 120, -159, 134)
 
-[node name="CollisionShape2D" parent="Images/Portrait2/ClickArea" index="0"]
+[node name="CollisionShape2D" parent="Portraits/Portrait2/ClickArea" index="0"]
 position = Vector2(16.5, 8)
 shape = SubResource("RectangleShape2D_psgh6")
 
-[node name="Portrait3" parent="Images" instance=ExtResource("9_eq58k")]
-position = Vector2(779, 0)
+[node name="Portrait3" parent="Portraits" instance=ExtResource("9_eq58k")]
+position = Vector2(589.45, -224.75)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("8_to1ep")
 
-[node name="ImageBoundaries" parent="Images/Portrait3" index="0"]
+[node name="ImageBoundaries" parent="Portraits/Portrait3" index="0"]
 polygon = PackedVector2Array(-149, -186, 112, -173, 140, 188, -129, 186)
 
-[node name="CollisionShape2D" parent="Images/Portrait3/ClickArea" index="0"]
+[node name="CollisionShape2D" parent="Portraits/Portrait3/ClickArea" index="0"]
 position = Vector2(-4.5, 7)
+shape = SubResource("RectangleShape2D_y48uv")
+
+[node name="Portrait4" parent="Portraits" instance=ExtResource("9_eq58k")]
+position = Vector2(937.45, -224.75)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_2t60i")
+
+[node name="ImageBoundaries" parent="Portraits/Portrait4" index="0"]
+polygon = PackedVector2Array(-117.786, -147.5, 95.0715, -154.643, 113.643, 156.786, -109.214, 163.929)
+
+[node name="CollisionShape2D" parent="Portraits/Portrait4/ClickArea" index="0"]
+position = Vector2(-4.92859, -0.357147)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_y48uv")
 
 [node name="Lever" parent="." instance=ExtResource("3_ngd8j")]
@@ -183,6 +202,7 @@ fit_content_height = true
 
 [connection signal="triggered" from="Lever" to="." method="_on_Lever_triggered"]
 
-[editable path="Images/Portrait1"]
-[editable path="Images/Portrait2"]
-[editable path="Images/Portrait3"]
+[editable path="Portraits/Portrait1"]
+[editable path="Portraits/Portrait2"]
+[editable path="Portraits/Portrait3"]
+[editable path="Portraits/Portrait4"]
