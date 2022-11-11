@@ -9,10 +9,10 @@
 config_version=5
 
 _global_script_classes=[{
-"base": "Node2D",
-"class": &"GalleryFrame",
+"base": "Sprite2D",
+"class": &"Frame",
 "language": &"GDScript",
-"path": "res://levels/gallery/portrait.gd"
+"path": "res://levels/gallery/frame.gd"
 }, {
 "base": "CharacterBody2D",
 "class": &"LevelIndicator",
@@ -25,7 +25,7 @@ _global_script_classes=[{
 "path": "res://levels/map/map_path.gd"
 }]
 _global_script_class_icons={
-"GalleryFrame": "",
+"Frame": "",
 "LevelIndicator": "",
 "MapPath": ""
 }

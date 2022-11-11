@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkid7tq2ada0x"]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://levels/gallery/lever.gd" id="1_60qto"]
-[ext_resource type="Texture2D" uid="uid://cw2t5qw3v3qjc" path="res://levels/gallery/lever_back.png" id="2_n5bmn"]
-[ext_resource type="Texture2D" uid="uid://c6heabyho2ufr" path="res://levels/gallery/lever_handle.png" id="3_yre4u"]
-[ext_resource type="Texture2D" uid="uid://dml84noisl7c" path="res://levels/gallery/lever_front.png" id="4_kla7u"]
+[ext_resource type="Texture2D" uid="uid://cw2t5qw3v3qjc" path="res://levels/gallery/assets/lever_back.png" id="2_n5bmn"]
+[ext_resource type="Texture2D" uid="uid://c6heabyho2ufr" path="res://levels/gallery/assets/lever_handle.png" id="3_yre4u"]
+[ext_resource type="Texture2D" uid="uid://dml84noisl7c" path="res://levels/gallery/assets/lever_front.png" id="4_kla7u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xy10y"]
 size = Vector2(126, 184)

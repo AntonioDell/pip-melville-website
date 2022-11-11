@@ -6,12 +6,12 @@ const TWEEN_DELAY := .5
 var _image_names := PackedStringArray()
 var _current_position := 0
 
-@onready var _image_1 := $Images/GalleryFrame1
-@onready var _image_2 := $Images/GalleryFrame2
-@onready var _image_3 := $Images/GalleryFrame3
+@onready var _portrait_1 := $Images/Portrait1
+@onready var _portrait_2 := $Images/Portrait2
+@onready var _portrait_3 := $Images/Portrait3
 
 func _ready():
-	for gallery_frame in [_image_1, _image_2, _image_3]:
+	for gallery_frame in [_portrait_1, _portrait_2, _portrait_3]:
 		gallery_frame.position.y = - gallery_frame.position.y / 2
 		gallery_frame.visible = false
 	
@@ -33,14 +33,14 @@ func _show_current_images(enter_from_left: bool = true, skip_hide_animation: boo
 	var visible_images := []
 	# TODO: Make dependent checked MAX_IMAGE_COUNT
 	if current_image_names.size() == 3:
-		visible_images = [_image_1, _image_2, _image_3]
+		visible_images = [_portrait_1, _portrait_2, _portrait_3]
 	elif current_image_names.size() == 2:
-		visible_images = [_image_1, _image_3]
+		visible_images = [_portrait_1, _portrait_3]
 	else:
-		visible_images = [_image_2]
+		visible_images = [_portrait_2]
 
 	var old_visible_images := []
-	for gallery_frame in [_image_1, _image_2, _image_3]:
+	for gallery_frame in [_portrait_1, _portrait_2, _portrait_3]:
 		if gallery_frame.visible:
 			old_visible_images.append(gallery_frame)
 	
@@ -50,7 +50,7 @@ func _show_current_images(enter_from_left: bool = true, skip_hide_animation: boo
 		var exit_direction := "exit" if enter_from_left else "entry"
 		for i in old_visible_images.size():
 			var index := (-i - 1 if enter_from_left else i) as int
-			var frame := old_visible_images[index] as GalleryFrame
+			var frame := old_visible_images[index] as Frame
 			_tween_frame(exit_tween, frame, old_positions[exit_direction][index], TWEEN_DELAY*i, enter_from_left)
 		await exit_tween.finished
 		
@@ -67,9 +67,9 @@ func _show_current_images(enter_from_left: bool = true, skip_hide_animation: boo
 	var positions := _get_frame_positions(visible_images.size())
 	var enter_direction := "entry" if enter_from_left else "exit"
 	for i in visible_images.size():
-		var gallery_frame := visible_images[i] as GalleryFrame
+		var gallery_frame := visible_images[i] as Frame
 		var texture = ImageTexture.create_from_image(loaded_images[i])
-		gallery_frame.image_texture = texture
+		gallery_frame.place_inside_boundaries(texture)
 		gallery_frame.position = positions[enter_direction][i]
 		gallery_frame.visible = true
 		if gallery_frame.is_connected("clicked",Callable(self,"_on_GalleryFrame_clicked")):
@@ -79,7 +79,7 @@ func _show_current_images(enter_from_left: bool = true, skip_hide_animation: boo
 	var entry_tween := create_tween().set_parallel()
 	for i in visible_images.size():
 		var index := (-i - 1 if enter_from_left else i) as int
-		var gallery_frame := visible_images[index] as GalleryFrame
+		var gallery_frame := visible_images[index] as Frame
 		_tween_frame(entry_tween, gallery_frame, positions["visible"][index], TWEEN_DELAY*i, enter_from_left)
 	await entry_tween.finished
 
@@ -107,7 +107,7 @@ func _on_GalleryFrame_clicked(path: String):
 	JavaScriptBridge.eval("window.open('%s')" % path)
 
 
-func _tween_frame(tween: Tween, frame: GalleryFrame, end_position: Vector2, delay: float, move_to_right: bool) -> void:
+func _tween_frame(tween: Tween, frame: Frame, end_position: Vector2, delay: float, move_to_right: bool) -> void:
 	tween.tween_property(frame, "position", end_position, 2).set_delay(delay).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 	tween.tween_callback(func(): frame.start_swinging(move_to_right)).set_delay(delay)
 

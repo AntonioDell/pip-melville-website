@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcn7l87ww1bid"]
+[gd_scene load_steps=5 format=3 uid="uid://djglpo6hptdnj"]
 
-[ext_resource type="Texture2D" uid="uid://d363073dokdws" path="res://levels/map/ghost_1.png" id="1_px2a0"]
-[ext_resource type="Texture2D" uid="uid://40l11rrlhgyt" path="res://levels/map/ghost_2.png" id="2_14g42"]
+[ext_resource type="Texture2D" uid="uid://d363073dokdws" path="res://levels/map/assets/ghost_1.png" id="1_m2mrr"]
+[ext_resource type="Texture2D" uid="uid://40l11rrlhgyt" path="res://levels/map/assets/ghost_2.png" id="2_5jqjm"]
 
 [sub_resource type="Animation" id="Animation_fk8i4"]
 resource_name = "change_sprites"
@@ -41,12 +41,12 @@ _data = {
 [node name="Sprite1" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_px2a0")
+texture = ExtResource("1_m2mrr")
 offset = Vector2(0, -256)
 
 [node name="Sprite2" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_14g42")
+texture = ExtResource("2_5jqjm")
 offset = Vector2(0, -256)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
