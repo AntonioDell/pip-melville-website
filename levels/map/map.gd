@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var player_fade_duration := 1.5
 
 ## Holds all previously calculated shortest path maps for the respective key.
 ## key: LevelIndicator.map_position
@@ -8,18 +9,39 @@ var _shortest_path_maps := {}
 var _is_moving := false
 
 @onready var _level_indicators := get_tree().get_nodes_in_group("level_indicators")
-@onready var _map_paths: Array = get_tree().get_nodes_in_group("map_paths")
+@onready var _map_paths := get_tree().get_nodes_in_group("map_paths")
 @onready var _player: Node2D = $Player
 @onready var _player_position : int = PlayerData.map_position
 
+
+
+func _input(event):
+	if not SessionData.was_game_interacted_once\
+	and event is InputEventMouseButton\
+	and event.pressed:
+		# We need to wait to discard the click in case it targeted a level indicator
+		await get_tree().create_timer(.1).timeout
+		SessionData.was_game_interacted_once = true
+		_enable_player()
+
+
 func _ready():
+	_player.modulate = Color.TRANSPARENT
 	if PlayerData.map_position_vector == Vector2(-1, -1):
 		PlayerData.map_position_vector = (get_node("Paths/0 -> 1") as Path2D).curve.get_point_position(0)
 	_player.global_position = PlayerData.map_position_vector
+	
+	if SessionData.was_game_interacted_once:
+		_enable_player()
+
+
+func _enable_player(): 
+	GlobalAudio.play_whoosh_1()
 	var fadeInTweener := create_tween()
-	fadeInTweener.tween_property(_player, "modulate", Color.WHITE, 1)
+	fadeInTweener.tween_property(_player, "modulate", Color.WHITE, player_fade_duration)
 	for indicator in _level_indicators:
 		indicator.connect("clicked",Callable(self,"_on_LevelIndicator_clicked"))
+		indicator.is_click_disabled = false
 
 
 func _on_LevelIndicator_clicked(level_indicator: LevelIndicator):
@@ -31,8 +53,9 @@ func _on_LevelIndicator_clicked(level_indicator: LevelIndicator):
 		await _move_between(current_indicator, level_indicator)
 	_is_moving = false
 	if level_indicator.scene_to_load:
+		GlobalAudio.play_whoosh_2()
 		var fadeOutTweener := create_tween()
-		fadeOutTweener.tween_property(_player, "modulate", Color.TRANSPARENT, 1)
+		fadeOutTweener.tween_property(_player, "modulate", Color.TRANSPARENT, player_fade_duration)
 		await fadeOutTweener.finished
 		$"/root/Transition".fade_to(level_indicator.scene_to_load)
 

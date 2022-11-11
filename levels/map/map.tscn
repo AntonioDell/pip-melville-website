@@ -30,7 +30,7 @@ size = Vector2(218, 228)
 
 [sub_resource type="Curve2D" id="Curve2D_xicc0"]
 _data = {
-"points": PackedVector2Array(60.5811, -28.0633, -60.5811, 28.0633, 378, 990, -23.8089, 95.7637, 23.8089, -95.7637, 155, 849, 0, 0, 0, 0, 447, 787)
+"points": PackedVector2Array(68.1492, -7.88178, -68.1492, 7.88178, 298, 973, -23.8089, 95.7637, 23.8089, -95.7637, 170, 837, 0, 0, 0, 0, 448, 827)
 }
 point_count = 3
 
@@ -160,7 +160,7 @@ texture = ExtResource("6_0536s")
 metadata/_edit_lock_ = true
 
 [node name="StartIndicator" parent="Indicators" instance=ExtResource("4_lwtcx")]
-position = Vector2(316, 973)
+position = Vector2(372, 981)
 
 [node name="CollisionShape2D" parent="Indicators/StartIndicator" index="0"]
 position = Vector2(0, -75.5)
@@ -172,7 +172,7 @@ scale = Vector2(0.174, 0.174)
 texture = ExtResource("8_d0s5k")
 
 [node name="GalleryIndicator" parent="Indicators" instance=ExtResource("4_lwtcx")]
-position = Vector2(446, 622)
+position = Vector2(494, 699)
 scene_to_load = ExtResource("6_jdus0")
 map_position = 1
 
@@ -194,8 +194,6 @@ is_two_way = true
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("12_vcpce")]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(388, 987)
 
 [editable path="Indicators/StartIndicator"]
 [editable path="Indicators/GalleryIndicator"]

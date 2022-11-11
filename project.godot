@@ -44,6 +44,8 @@ PlayerData="*res://globals/player_data.tscn"
 Transition="*res://globals/transition.tscn"
 Interactions="*res://globals/interactions.tscn"
 Config="*res://globals/config.tscn"
+SessionData="*res://globals/session_data.gd"
+GlobalAudio="*res://globals/GlobalAudio.tscn"
 
 [display]
 

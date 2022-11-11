@@ -4,3 +4,12 @@ res://levels/gallery/frame.tscn
 res://levels/gallery/portrait.tscn
 res://levels/map/map.tscn
 res://levels/map/player.tscn
+res://levels/map/map.gd
+res://levels/map/level_indicator.gd
+res://globals/player_data.gd
+res://globals/session_data.gd
+res://levels/map/level_indicator.tscn
+res://globals/Audio.tscn
+res://globals/Audio.gd
+res://globals/GlobalAudio.tscn
+res://globals/GlobalAudio.gd
