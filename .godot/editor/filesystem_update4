@@ -1,3 +1,4 @@
-res://levels/map/map.tscn
 res://levels/gallery/frame.tscn
 res://levels/gallery/portrait.tscn
+res://levels/map/map.tscn
+res://levels/map/player.tscn
