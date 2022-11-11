@@ -13,3 +13,5 @@ res://globals/Audio.tscn
 res://globals/Audio.gd
 res://globals/GlobalAudio.tscn
 res://globals/GlobalAudio.gd
+res://levels/gallery/lever.tscn
+res://levels/gallery/lever.gd

@@ -46,6 +46,7 @@ func _on_GrabArea_input_event(viewport, event, shape_idx):
 
 
 func _wiggle(): 
+	GlobalAudio.play_creak_1()
 	var wiggle_tween = create_tween()
 	wiggle_tween.tween_property(_handle, "rotation", deg_to_rad(max_wiggle), .25).set_ease(Tween.EASE_IN)
 	wiggle_tween.tween_property(_handle, "rotation", -deg_to_rad(max_wiggle), .25).set_ease(Tween.EASE_IN)
@@ -59,6 +60,7 @@ func _rotate_handle():
 	_handle.rotation = sign(delta_x) * lerped_angle
 	
 	if abs(_handle.rotation) >= deg_to_rad(max_rotation-0.01):
+		GlobalAudio.play_clack_1()
 		_is_dragged = false
 		_is_snapping_back = true
 		Input.warp_mouse(_drag_start_position)
