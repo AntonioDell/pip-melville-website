@@ -62,18 +62,22 @@ _data = {
 
 [node name="Frame" type="Sprite2D"]
 texture = ExtResource("1_xfxtc")
+offset = Vector2(0, 139)
 script = ExtResource("1_h0mcy")
 
 [node name="ImageBoundaries" type="Polygon2D" parent="."]
 show_behind_parent = true
+position = Vector2(0, 141)
 polygon = PackedVector2Array(-141, -115, 145, -126, 140, 119, -143, 122)
 
 [node name="ImageSprite" type="Sprite2D" parent="."]
+position = Vector2(0, 138)
 region_rect = Rect2(0, 0, 66, 65)
 
 [node name="ClickArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
+position = Vector2(-1, 138)
 shape = SubResource("RectangleShape2D_v2clx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
