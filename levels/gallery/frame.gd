@@ -37,7 +37,7 @@ func start_swinging(move_to_right: bool) -> void:
 		$AnimationPlayer.play("swing_to_left_movement")
 
 
-func place_inside_boundaries(texture: Texture2D):
+func place_inside_boundaries(texture: ImageTexture):
 	if texture.get_width() <= _boundary_rect.size.x &&\
 		texture.get_height() <= _boundary_rect.size.y: 
 		# Simple case: Texture fits inside boundary -> no resize necessary
@@ -65,10 +65,8 @@ func place_inside_boundaries(texture: Texture2D):
 		# Shrink other side with that aspect ratio
 		shrunk_width = texture.get_width() * a
 	
-	var image := texture.get_image()
-	# print("%s: Image size is %sx%s, Boundary rect is %sx%s" % [get_name(), shrunk_width, shrunk_height, _boundary_rect.size.x, _boundary_rect.size.y])
-	image.resize(shrunk_width, shrunk_height)
-	_place_texture(ImageTexture.create_from_image(image))
+	texture.set_size_override(Vector2(shrunk_width, shrunk_height))
+	_place_texture(texture)
 
 
 func _place_texture(texture: Texture2D):

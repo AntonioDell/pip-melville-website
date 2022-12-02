@@ -50,7 +50,7 @@ func get_image(name: String):
 	
 	var error = $HTTPRequest.request(_data_info["images"][name]["path"])
 	var response = await $HTTPRequest.request_completed 
-	if error != OK or response[1] != 200:
+	if error != OK or response[0] != HTTPRequest.RESULT_SUCCESS:
 		return null 
 	
 	# request_completed emits result, response_code, headers and body

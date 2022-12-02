@@ -70,8 +70,9 @@ func _show_current_images(enter_from_left: bool = true, skip_hide_animation: boo
 	var enter_direction := "entry" if enter_from_left else "exit"
 	for i in visible_portraits.size():
 		var portrait := visible_portraits[i] as Frame
-		var texture = ImageTexture.create_from_image(loaded_images[i])
-		portrait.place_inside_boundaries(texture)
+		if loaded_images[i] != null:
+			var texture = ImageTexture.create_from_image(loaded_images[i])
+			portrait.place_inside_boundaries(texture)
 		portrait.position = positions[enter_direction][i]
 		portrait.visible = true
 		if portrait.is_connected("clicked",Callable(self,"_on_GalleryFrame_clicked")):
