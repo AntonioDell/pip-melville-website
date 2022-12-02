@@ -1,5 +1,8 @@
-res://levels/gallery/frame.tscn
-res://levels/gallery/gallery.tscn
 res://levels/gallery/lever.tscn
 res://globals/GlobalAudio.tscn
+res://levels/gallery/frame.tscn
 res://levels/gallery/portrait.tscn
+res://levels/gallery/gallery.tscn
+res://globals/data_repository.tscn
+res://levels/gallery/frame.gd
+res://globals/data_repository.gd

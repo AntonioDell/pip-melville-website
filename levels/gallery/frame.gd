@@ -66,6 +66,7 @@ func place_inside_boundaries(texture: Texture2D):
 		shrunk_width = texture.get_width() * a
 	
 	var image := texture.get_image()
+	# print("%s: Image size is %sx%s, Boundary rect is %sx%s" % [get_name(), shrunk_width, shrunk_height, _boundary_rect.size.x, _boundary_rect.size.y])
 	image.resize(shrunk_width, shrunk_height)
 	_place_texture(ImageTexture.create_from_image(image))
 

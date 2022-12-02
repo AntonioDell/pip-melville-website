@@ -71,6 +71,7 @@ position = Vector2(0, 141)
 polygon = PackedVector2Array(-141, -115, 145, -126, 140, 119, -143, 122)
 
 [node name="ImageSprite" type="Sprite2D" parent="."]
+show_behind_parent = true
 position = Vector2(0, 138)
 region_rect = Rect2(0, 0, 66, 65)
 
