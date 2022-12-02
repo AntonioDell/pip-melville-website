@@ -1,5 +1,5 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1669965167
+::res://::1669966672
 default_env.tres::Environment::-1::1663305309::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1666632959::0::1::::<><>::
 frame_1.tscn::PackedScene::7608176000515439771::1666633463::0::1::::<><>::uid://bf16v3lrtnpuh
@@ -13,10 +13,10 @@ index.png::CompressedTexture2D::3045933947663556907::1666423512::1667840813::1::
 index.apple-touch-icon.png::CompressedTexture2D::5326904057839032086::1667840813::1667840813::1::::<><>::
 index.icon.png::CompressedTexture2D::4862201997623213632::1667840813::1667840813::1::::<><>::
 index.png::CompressedTexture2D::6625677665961617153::1667840813::1667840813::1::::<><>::
-::res://globals/::1669961508
+::res://globals/::1669966331
 config.gd::GDScript::-1::1663940180::0::1::::<>Node<>::
 config.tscn::PackedScene::7629279163518116619::1663309036::0::1::::<><>::res://globals/config.gd
-data_repository.gd::GDScript::-1::1669961508::0::1::::<>Node<>::
+data_repository.gd::GDScript::-1::1669966331::0::1::::<>Node<>::
 data_repository.tscn::PackedScene::3998113984714511247::1669960985::0::1::::<><>::res://globals/data_repository.gd
 GlobalAudio.gd::GDScript::-1::1668184369::0::1::::<>Node<>::
 GlobalAudio.tscn::PackedScene::1955753099431176459::1669960985::0::1::::<><>::res://globals/GlobalAudio.gd
@@ -28,11 +28,11 @@ session_data.gd::GDScript::-1::1668182094::0::1::::<>Node<>::
 transition.gd::GDScript::-1::1663312155::0::1::::<>CanvasLayer<>::
 transition.tscn::PackedScene::-1::1663305309::0::1::::<><>::res://globals/transition.gd
 ::res://levels/::1666716263
-::res://levels/gallery/::1669965167
-frame.gd::GDScript::-1::1669962695::0::1::::Frame<>Sprite2D<>::
-frame.tscn::PackedScene::3831203117015147023::1669962697::0::1::::<><>::res://levels/gallery/frame.gd<>uid://cqqw2uk172f2p
+::res://levels/gallery/::1669966669
+frame.gd::GDScript::-1::1669966369::0::1::::Frame<>Sprite2D<>::
+frame.tscn::PackedScene::3831203117015147023::1669966669::0::1::::<><>::res://levels/gallery/frame.gd<>uid://cqqw2uk172f2p
 gallery.gd::GDScript::-1::1668175219::0::1::::<>Node<>::
-gallery.tscn::PackedScene::7900726208860786525::1669962697::0::1::::<><>::res://levels/gallery/gallery.gd<>uid://v78tn7kef0w2<>uid://b4pclbd25fpv7<>uid://c7qdfgj06emye<>uid://but4mdcfwx6vr<>uid://cf1ap674s585y<>uid://ilmx6fu4p2hb<>uid://cxqa2h8qkf0fa<>uid://cknrc6w2s5a63
+gallery.tscn::PackedScene::7900726208860786525::1669966669::0::1::::<><>::res://levels/gallery/gallery.gd<>uid://v78tn7kef0w2<>uid://b4pclbd25fpv7<>uid://c7qdfgj06emye<>uid://but4mdcfwx6vr<>uid://c0e6ldyefsj4n<>uid://ilmx6fu4p2hb<>uid://cxqa2h8qkf0fa<>uid://cknrc6w2s5a63
 lever.gd::GDScript::-1::1668184395::0::1::::<>Node2D<>::
 lever.tscn::PackedScene::5502604138495685034::1669960985::0::1::::<><>::res://levels/gallery/lever.gd<>uid://cw2t5qw3v3qjc<>uid://c6heabyho2ufr<>uid://dml84noisl7c
 portrait.tscn::PackedScene::385769259576639874::1669960985::0::1::::<><>::uid://bf16v3lrtnpuh

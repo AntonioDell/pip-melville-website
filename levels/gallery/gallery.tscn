@@ -171,7 +171,6 @@ position = Vector2(3.05176e-05, 184.286)
 
 [node name="CollisionShape2D" parent="Portraits/Portrait2/ClickArea" index="0"]
 position = Vector2(0.392914, 182.857)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_psgh6")
 
 [node name="Portrait3" parent="Portraits" instance=ExtResource("5_cdf0p")]
