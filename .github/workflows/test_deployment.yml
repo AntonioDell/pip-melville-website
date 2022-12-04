@@ -1,4 +1,4 @@
-name: cd-pipeline
+name: Deploy to test
 on: push
 jobs:
   export-game:
@@ -13,7 +13,8 @@ jobs:
         uses: jacobtomlinson/gha-find-replace@v2
         with: 
           find: "$DATA_BUCKET_URL"
-          replace: "${{ secrets.TEST_DATA_BUCKET_URL }}"
+          # Use the same bucket url as prod for simplicity
+          replace: "${{ secrets.PMW_DATA_BUCKET_URL }}"
           include: "**custom_shell.html"
           regex: false
       - name: export game

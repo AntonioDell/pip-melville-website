@@ -1,4 +1,4 @@
-name: cd-pipeline
+name: Deploy to prod
 on:
   push:
     # Pattern matched against refs/tags
