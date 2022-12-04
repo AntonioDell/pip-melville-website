@@ -1,0 +1,59 @@
+name: cd-pipeline
+on: push
+jobs:
+  export-game:
+    runs-on: ubuntu-latest
+    name: Export Game
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: set DATA_BUCKET_URL in index.html
+        uses: jacobtomlinson/gha-find-replace@v2
+        with: 
+          find: "$DATA_BUCKET_URL"
+          replace: "${{ secrets.TEST_DATA_BUCKET_URL }}"
+          include: "**custom_shell.html"
+          regex: false
+      - name: export game
+        id: export
+        # Use latest version (see releases for all versions)
+        uses: firebelley/godot-export@v4.2.0
+        with:
+          # Defining all the required inputs
+          godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.0/beta4/Godot_v4.0-beta4_linux.x86_64.zip
+          godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.0/beta4/Godot_v4.0-beta4_export_templates.tpz
+          relative_project_path: ./
+          archive_output: true
+          use_godot_4: true
+      - name: unzip archive
+        run: unzip ${{ steps.export.outputs.archive_directory }}/Web.zip -d web
+      - name: set up s3cmd cli tool
+        uses: s3-actions/s3cmd@v1.2.0
+        with:
+          provider: aws
+          region: ${{ secrets.S3_REGION }}
+          access_key: ${{ secrets.S3_ACCESS_KEY }}
+          secret_key: ${{ secrets.S3_SECRET_KEY }}
+      - name: delete game files from bucket
+        run: |
+          s3cmd --recursive ls ${{ secrets.TEST_WEB_S3CMD_URI }} | 
+          awk '{ print $4 }' | 
+          grep "index.*" | 
+          xargs s3cmd del
+      - name: delete static folder from bucket
+        run: s3cmd del -r --force ${{ secrets.TEST_WEB_S3CMD_URI }}/static
+      - name: upload website files
+        run: s3cmd sync --recursive web/* ${{ secrets.TEST_WEB_S3CMD_URI }}
+      - name: upload static folder
+        run: s3cmd sync --recursive ${{ github.workspace }}/static ${{ secrets.TEST_WEB_S3CMD_URI }}
+      - name: invalidate aws distribution
+        uses: chetan/invalidate-cloudfront-action@v2
+        env:
+          PATHS: "/*"
+          AWS_REGION: ${{ secrets.S3_REGION }}
+          DISTRIBUTION: ${{ secrets.TEST_DISTRIBUTION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_KEY }}
+
