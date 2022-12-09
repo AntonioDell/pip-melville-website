@@ -53,7 +53,7 @@ jobs:
             mv $File.gz $File
           done;
       - name: upload website files
-        run: s3cmd sync --recursive --add-header=Content-Encoding:gzip web/* ${{ secrets.TEST_WEB_S3CMD_URI }}
+        run: s3cmd sync --recursive --add-header=Content-Encoding:gzip --no-mime-magic web/* ${{ secrets.TEST_WEB_S3CMD_URI }}
       - name: upload static folder
         run: s3cmd sync --recursive ${{ github.workspace }}/static ${{ secrets.TEST_WEB_S3CMD_URI }}
       - name: invalidate aws distribution
