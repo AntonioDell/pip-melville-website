@@ -45,8 +45,15 @@ jobs:
           xargs s3cmd del
       - name: delete static folder from bucket
         run: s3cmd del -r --force ${{ secrets.TEST_WEB_S3CMD_URI }}/static
+      - name: gzip all files
+        run: |
+          for File in web/index*
+          do
+            gzip $File;
+            mv $File.gz $File
+          done;
       - name: upload website files
-        run: s3cmd sync --recursive web/* ${{ secrets.TEST_WEB_S3CMD_URI }}
+        run: s3cmd sync --recursive --add-header=Content-Encoding:gzip web/* ${{ secrets.TEST_WEB_S3CMD_URI }}
       - name: upload static folder
         run: s3cmd sync --recursive ${{ github.workspace }}/static ${{ secrets.TEST_WEB_S3CMD_URI }}
       - name: invalidate aws distribution
