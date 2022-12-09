@@ -1,5 +1,8 @@
 name: Deploy to test
-on: push
+on: 
+  push:
+    branches: 
+      - '**'
 jobs:
   export-game:
     runs-on: ubuntu-latest
