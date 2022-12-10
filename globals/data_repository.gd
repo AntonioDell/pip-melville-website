@@ -28,8 +28,8 @@ func get_image_names() -> Array:
 	var name_list = []
 	for image_name in _data_info["data"]["images"]:
 		# On AWS buckets the folders get their own xml entry -> image with empty name gets parsed
-		# This if statement is not necessary with linode object storage
-		if image_name != "":
+		# We do not want to return thumbnail image names
+		if image_name != "" and not image_name.contains("thumbnail"):
 			name_list.push_back(image_name)
 	return name_list
 
@@ -72,6 +72,12 @@ func get_image(name: String):
 	if error != OK:
 		return null
 	return image
+
+
+func get_thumbnail(image_name: String):
+	var thumbnail_name = "thumbnail_%s" % image_name
+	var thumbnail = await get_image(thumbnail_name) 
+	return thumbnail
 
 
 ## Internal method.

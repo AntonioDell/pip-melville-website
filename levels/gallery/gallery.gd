@@ -62,7 +62,7 @@ func _show_current_images(enter_from_left: bool = true, skip_hide_animation: boo
 	var loaded_images = []
 	var image_paths = []
 	for image_name in current_image_names:
-		var image = await DataRepository.get_image(image_name)
+		var image = await DataRepository.get_thumbnail(image_name)
 		loaded_images.append(image)
 		image_paths.append(DataRepository.get_image_path(image_name))
 	

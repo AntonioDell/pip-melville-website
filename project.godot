@@ -59,7 +59,7 @@ window/size/height=1024
 
 [editor]
 
-run/main_run_args="--data-bucket-url=https://s3.eu-central-1.amazonaws.com/data.pip-melville.de"
+run/main_run_args="--data-bucket-url=https://s3.eu-central-1.amazonaws.com/pip-melville.de"
 
 [editor_plugins]
 
