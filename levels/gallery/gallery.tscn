@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dktf2oe0yrl5n"]
+[gd_scene load_steps=17 format=3 uid="uid://dktf2oe0yrl5n"]
 
 [ext_resource type="Script" path="res://levels/gallery/gallery.gd" id="1_23t4f"]
 [ext_resource type="Texture2D" uid="uid://v78tn7kef0w2" path="res://levels/gallery/assets/brick_1.png" id="2_l1k3m"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ilmx6fu4p2hb" path="res://levels/gallery/assets/frame_3.png" id="7_ipiyu"]
 [ext_resource type="Texture2D" uid="uid://cxqa2h8qkf0fa" path="res://levels/gallery/assets/frame_4.png" id="8_xmqla"]
 [ext_resource type="PackedScene" uid="uid://cknrc6w2s5a63" path="res://levels/gallery/lever.tscn" id="9_2ydsy"]
+[ext_resource type="PackedScene" uid="uid://cq5s4lm13l8fm" path="res://commons/go_back_arrow.tscn" id="10_30j4o"]
 
 [sub_resource type="Gradient" id="1"]
 offsets = PackedFloat32Array(0)
@@ -221,6 +222,9 @@ grow_vertical = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Press ESC to return to Map"
 fit_content_height = true
+
+[node name="GoBackArrow" parent="." instance=ExtResource("10_30j4o")]
+position = Vector2(109, 934)
 
 [connection signal="triggered" from="Lever" to="." method="_on_Lever_triggered"]
 

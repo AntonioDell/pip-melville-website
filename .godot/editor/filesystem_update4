@@ -1,2 +1,6 @@
 res://levels/gallery/gallery.tscn
 res://levels/map/map.tscn
+res://globals/interactions.tscn
+res://globals/interactions.gd
+res://commons/go_back_arrow.tscn
+res://commons/go_back_arrow.gd

@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq5s4lm13l8fm"]
+
+[ext_resource type="Script" path="res://commons/go_back_arrow.gd" id="1_o1gbh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgaka"]
+size = Vector2(52, 59)
+
+[node name="GoBackArrow" type="Node2D"]
+script = ExtResource("1_o1gbh")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-12, 0, 12, 0, 12, 32, 25, 32, 0, 57, -25, 32, -12, 32)
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-12, 0, 12, 0, 12, 32, 25, 32, 0, 57, -25, 32, -12, 32, -12, 0)
+width = 2.0
+default_color = Color(0.262745, 0.262745, 0.262745, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="ClickArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea"]
+position = Vector2(-1, 28.5)
+shape = SubResource("RectangleShape2D_sgaka")
+
+[connection signal="input_event" from="ClickArea" to="." method="_on_click_area_input_event"]
