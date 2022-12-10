@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3]
+[gd_scene load_steps=18 format=3 uid="uid://1lemv3o3eco5"]
 
 [ext_resource type="Script" path="res://levels/map/map.gd" id="1_8rb8i"]
 [ext_resource type="Texture2D" uid="uid://b2e5yopoqnsas" path="res://levels/map/assets/meadow_1.png" id="2_osnsj"]
