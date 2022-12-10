@@ -9,9 +9,9 @@ res://levels/map/level_indicator.tscn::cec499419ac7b23fb55dd46e4160593b::1668182
 res://levels/map/map.tscn::c49e46deca7ac0b0713a8dbf61a40f3d::1668257276::res://.godot/exported/133200997/export-565a3792bc1b97ae8e441d653b83cc72-map.scn
 res://levels/map/map_path.tscn::5f147d0e9578f9d62faed3d3ac746085::1665893806::res://.godot/exported/133200997/export-dae18d4c84fa721ff0061322163ea386-map_path.scn
 res://default_env.tres::a52129f071fffbd20a6013a6c0edec1e::1663305309::res://.godot/exported/133200997/export-7cf3fd67ad9f55210191d77b582b8209-default_env.res
-res://levels/gallery/frame.tscn::2006c39201977a95e2519a583616ed90::1669970023::res://.godot/exported/133200997/export-85bfea53030f3ea7b257da7d45ab3fba-frame.scn
+res://levels/gallery/frame.tscn::2006c39201977a95e2519a583616ed90::1670660031::res://.godot/exported/133200997/export-85bfea53030f3ea7b257da7d45ab3fba-frame.scn
 res://levels/gallery/portrait.tscn::982cba8104d5ee30b01c83541db33bb5::1669960985::res://.godot/exported/133200997/export-83c051903c5807aeeb4a05711a7af81c-portrait.scn
 res://frame_1.tscn::c52a80315162bc100bfbbebd3942d556::1666633463::res://.godot/exported/133200997/export-25dcead439996b839a54d7f2311caf74-frame_1.scn
 res://levels/map/player.tscn::e0739ffd437a3568d2430918548f0917::1668177339::res://.godot/exported/133200997/export-1c8163eb93f4f2de3f7592729cd0486c-player.scn
 res://globals/GlobalAudio.tscn::cc2767c3f40bc226cc2f25565c4db1d2::1669960985::res://.godot/exported/133200997/export-b1650c0cfb44cbfb3e4b089bbe92d07e-GlobalAudio.scn
-res://levels/gallery/gallery.tscn::4d8ded969f5d7358f10e7022a1deed8d::1669970023::res://.godot/exported/133200997/export-bc89ace9a337015f3267c1088eedc76e-gallery.scn
+res://levels/gallery/gallery.tscn::4d8ded969f5d7358f10e7022a1deed8d::1670660031::res://.godot/exported/133200997/export-bc89ace9a337015f3267c1088eedc76e-gallery.scn
