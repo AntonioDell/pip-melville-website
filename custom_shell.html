@@ -234,10 +234,6 @@
 
         function resizeCanvas() {
           const resizeObserver = new ResizeObserver(() => {
-            console.log(
-              `${canvas.clientWidth}x${canvas.clientHeight} (${devicePixelRatio})`
-            );
-
             canvas.width = Math.round(canvas.clientWidth * devicePixelRatio);
             canvas.height = Math.round(canvas.clientHeight * devicePixelRatio);
           });
