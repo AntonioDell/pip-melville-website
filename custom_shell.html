@@ -46,6 +46,18 @@
         box-shadow: 0 0 1px 1px #2f2d35;
       }
 
+      #ios-warning {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;
+      }
+
       /* Status display
 		 * ============== */
 
@@ -178,9 +190,26 @@
       </div>
       <div id="status-notice" class="godot" style="display: none"></div>
     </div>
+    <div id="ios-warning">
+      Currently IOS devices are not supported. Please try accessing the site
+      with a non-IOS device. As browser we recommend Google Chrome or Firefox.
+    </div>
 
     <script type="text/javascript" src="$GODOT_URL"></script>
     <script type="text/javascript">
+      function isIOS() {
+        const platform =
+          navigator?.userAgent || navigator?.platform || "unknown";
+
+        return /iPhone|iPod|iPad/.test(platform);
+      }
+
+      if (isIOS()) {
+        console.log("IOS detected");
+        const iosWarning = document.getElementById("ios-warning");
+        iosWarning.style.visibility = "visible";
+        throw new Error("IOS not supported.");
+      }
       const GODOT_CONFIG = $GODOT_CONFIG;
       GODOT_CONFIG.args.push("--data-bucket-url=$DATA_BUCKET_URL"); // DATA_BUCKET_URL is replaced by github action with the provided secrets.<environment>_DATA_BUCKET_URL
       let engine = new Engine(GODOT_CONFIG);
@@ -204,7 +233,9 @@
 
         function resizeCanvas() {
           const resizeObserver = new ResizeObserver(() => {
-            console.log(`${canvas.clientWidth}x${canvas.clientHeight} (${devicePixelRatio})`)
+            console.log(
+              `${canvas.clientWidth}x${canvas.clientHeight} (${devicePixelRatio})`
+            );
 
             canvas.width = Math.round(canvas.clientWidth * devicePixelRatio);
             canvas.height = Math.round(canvas.clientHeight * devicePixelRatio);
@@ -212,7 +243,6 @@
 
           resizeObserver.observe(canvas);
         }
-
         function animate(time) {
           animationCallbacks.forEach((callback) => callback(time));
           requestAnimationFrame(animate);
