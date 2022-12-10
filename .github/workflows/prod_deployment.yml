@@ -55,7 +55,7 @@ jobs:
           s3cmd --recursive ls ${{ secrets.PMW_WEB_S3CMD_URI }} | 
           awk '{ print $4 }' | 
           grep "index.*" | 
-          xargs s3cmd del
+          xargs -r s3cmd del
       - name: delete static folder from bucket
         run: s3cmd del -r --force ${{ secrets.PMW_WEB_S3CMD_URI }}/static
       - name: upload website files
