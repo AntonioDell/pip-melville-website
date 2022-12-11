@@ -8,7 +8,6 @@ size = Vector2(68, 66)
 [node name="LevelIndicator" type="CharacterBody2D" groups=["level_indicators"]]
 input_pickable = true
 script = ExtResource("1")
-map_position = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_tt13o")
