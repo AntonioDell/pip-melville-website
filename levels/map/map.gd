@@ -51,13 +51,13 @@ func _on_LevelIndicator_clicked(level_indicator: LevelIndicator):
 	if current_indicator != level_indicator:
 		_is_moving = true
 		await _move_between(current_indicator, level_indicator)
-	_is_moving = false
 	if level_indicator.scene_to_load:
 		GlobalAudio.play_whoosh_2()
 		var fadeOutTweener := create_tween()
 		fadeOutTweener.tween_property(_player, "modulate", Color.TRANSPARENT, player_fade_duration)
 		await fadeOutTweener.finished
 		$"/root/Transition".fade_to(level_indicator.scene_to_load)
+	_is_moving = false
 
 
 func _get_current_indicator() -> LevelIndicator:

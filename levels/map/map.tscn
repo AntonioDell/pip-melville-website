@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://1lemv3o3eco5"]
+[gd_scene load_steps=23 format=3 uid="uid://1lemv3o3eco5"]
 
 [ext_resource type="Script" path="res://levels/map/map.gd" id="1_8rb8i"]
 [ext_resource type="Texture2D" uid="uid://b2e5yopoqnsas" path="res://levels/map/assets/meadow_1.png" id="2_osnsj"]
@@ -40,6 +40,12 @@ point_count = 3
 [sub_resource type="Curve2D" id="Curve2D_80lr6"]
 _data = {
 "points": PackedVector2Array(68.1492, -7.88178, -68.1492, 7.88178, 298, 973, -23.8089, 95.7637, 23.8089, -95.7637, 170, 837, 123.835, 94.4353, -123.835, -94.4353, 124, 537)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_fjg7k"]
+_data = {
+"points": PackedVector2Array(118.04, 50.0266, -118.04, -50.0266, 454, 827, 18.9542, 53.0006, -18.9542, -53.0006, 201, 757, 123.835, 94.4353, -123.835, -94.4353, 124, 537)
 }
 point_count = 3
 
@@ -261,6 +267,12 @@ metadata/_edit_lock_ = true
 [node name="0 -> 2" parent="Paths" instance=ExtResource("8_w4pyx")]
 curve = SubResource("Curve2D_80lr6")
 start = NodePath("../../Indicators/StartIndicator")
+end = NodePath("../../Indicators/HutIndicator")
+is_two_way = true
+
+[node name="1 -> 2" parent="Paths" instance=ExtResource("8_w4pyx")]
+curve = SubResource("Curve2D_fjg7k")
+start = NodePath("../../Indicators/GalleryIndicator")
 end = NodePath("../../Indicators/HutIndicator")
 is_two_way = true
 
