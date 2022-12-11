@@ -23,7 +23,7 @@ jobs:
       - name: export game
         id: export
         # Use latest version (see releases for all versions)
-        uses: firebelley/godot-export@v4.4.0
+        uses: AntonioDell/godot-export@d449075039b5d06fb91508e5ded96dc3176259e9
         with:
           # Defining all the required inputs
           godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.0/beta8/Godot_v4.0-beta8_linux.x86_64.zip
@@ -31,6 +31,7 @@ jobs:
           relative_project_path: ./
           archive_output: true
           use_godot_4: true
+          initial_import: true
       - name: unzip archive
         run: unzip ${{ steps.export.outputs.archive_directory }}/Web.zip -d web
       - name: set up s3cmd cli tool
