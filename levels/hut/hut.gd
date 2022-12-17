@@ -46,6 +46,10 @@ func _on_back_button_pressed():
 
 
 func _on_mirror_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.pressed \
+	and not event.button_index == MOUSE_BUTTON_WHEEL_DOWN \
+	and not event.button_index == MOUSE_BUTTON_WHEEL_UP \
+	and not _is_navigation_blocked: 
+		print("Navigating!")
 		var text_path = DataRepository.get_text_path(_text_names[_current_text])
 		JavaScriptBridge.eval("window.open('%s')" % text_path)

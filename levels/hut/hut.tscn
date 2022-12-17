@@ -22,6 +22,7 @@ offset_right = -32.0
 offset_bottom = -430.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 
