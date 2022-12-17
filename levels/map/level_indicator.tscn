@@ -3,11 +3,12 @@
 [ext_resource type="Script" path="res://levels/map/level_indicator.gd" id="1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tt13o"]
-size = Vector2(68, 66)
+size = Vector2(197, 213)
 
 [node name="LevelIndicator" type="CharacterBody2D" groups=["level_indicators"]]
 input_pickable = true
 script = ExtResource("1")
+map_position = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_tt13o")
