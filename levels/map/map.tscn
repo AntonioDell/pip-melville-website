@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://1lemv3o3eco5"]
+[gd_scene load_steps=24 format=3 uid="uid://1lemv3o3eco5"]
 
 [ext_resource type="Script" path="res://levels/map/map.gd" id="1_8rb8i"]
 [ext_resource type="Texture2D" uid="uid://b2e5yopoqnsas" path="res://levels/map/assets/meadow_1.png" id="2_osnsj"]
@@ -12,9 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://cjx2btnv47wmb" path="res://levels/map/assets/startpoint.png" id="8_d0s5k"]
 [ext_resource type="PackedScene" path="res://levels/map/map_path.tscn" id="8_w4pyx"]
 [ext_resource type="Texture2D" uid="uid://btdralk60uwpp" path="res://levels/map/assets/tower_ruin.png" id="10_jekvk"]
-[ext_resource type="Texture2D" uid="uid://7015tnpv5ruu" path="res://icon.png" id="11_sb22l"]
 [ext_resource type="PackedScene" uid="uid://caw0juck1ltcf" path="res://levels/hut/hut.tscn" id="12_p4hq8"]
 [ext_resource type="PackedScene" uid="uid://djglpo6hptdnj" path="res://levels/map/player.tscn" id="12_vcpce"]
+[ext_resource type="Texture2D" uid="uid://ct6ls8qhoo334" path="res://levels/map/assets/hut.png" id="13_ha2f2"]
 
 [sub_resource type="Gradient" id="1"]
 offsets = PackedFloat32Array(0)
@@ -30,6 +30,9 @@ size = Vector2(102, 121)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bitmn"]
 size = Vector2(218, 228)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tqtb"]
+size = Vector2(196, 218)
 
 [sub_resource type="Curve2D" id="Curve2D_xicc0"]
 _data = {
@@ -247,12 +250,16 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_jekvk")
 
 [node name="HutIndicator" parent="Indicators" instance=ExtResource("4_lwtcx")]
-position = Vector2(63, 478)
+position = Vector2(103, 415)
 scene_to_load = ExtResource("12_p4hq8")
 map_position = 2
 
+[node name="CollisionShape2D" parent="Indicators/HutIndicator" index="0"]
+shape = SubResource("RectangleShape2D_0tqtb")
+
 [node name="IndicatorSprite" parent="Indicators/HutIndicator" index="1"]
-texture = ExtResource("11_sb22l")
+scale = Vector2(0.251989, 0.251989)
+texture = ExtResource("13_ha2f2")
 
 [node name="Paths" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
