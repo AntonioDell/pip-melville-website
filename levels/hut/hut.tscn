@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://caw0juck1ltcf"]
+[gd_scene load_steps=5 format=3 uid="uid://caw0juck1ltcf"]
 
+[ext_resource type="Script" path="res://levels/hut/hut.gd" id="1_af6y0"]
 [ext_resource type="PackedScene" uid="uid://ct183aydlkmg3" path="res://commons/background.tscn" id="1_qlqt2"]
 [ext_resource type="Texture2D" uid="uid://ci861l0uyvfs6" path="res://levels/hut/mirror.png" id="2_ohxd3"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqkju"]
+size = Vector2(397, 649.5)
+
 [node name="Hut" type="Node"]
+script = ExtResource("1_af6y0")
 
 [node name="Background" parent="." instance=ExtResource("1_qlqt2")]
 
@@ -19,36 +24,31 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
-text = "
 
+[node name="BackButton" type="Button" parent="."]
+offset_left = 436.0
+offset_top = 678.0
+offset_right = 475.0
+offset_bottom = 719.0
+text = "<"
 
-[center][font_size=30]Mach das Licht an.[/font_size]
-(Lampenschirm, Karma, sinieren)
+[node name="ForwardButton" type="Button" parent="."]
+offset_left = 686.0
+offset_top = 678.0
+offset_right = 725.0
+offset_bottom = 719.0
+text = ">"
 
-Seine Füße ruhten wie frisch gebackene Brote auf dem Boden des blitzeblanko reinen Zimmers. Es war nur ein Stuhl darin. Alles war beinahe blendend weiß, weshalb sich Leuchte auf seine Schuhe konzentrierte. Er bekam den Eindruck, dass jeden Moment, Ameisen aus den Seitenlöchern seiner abgewetzten Turnschuhe krabbeln könnten. War er mehr das Objekt einer artzfartzi mäßigen Kunstausstellung, als wie ein Wartende?.
-Aber Fräulein Muttermal-übern-rechten-Auge meinte:\" Begeben Sie sich bitte durch die Tür in den Wartesaal. Madame Filin wird sich in Kürze Ihrer annehmen.\"
-Er kannte nicht einmal Madame Filin. Kein Plan. Er sollte hier her, jetzt war er hier. Warum?
-Ja, warum nur? Ein fünfstelliges, unbedeutend anmutendes Wort, dass die argwöhnische Eigenschaft besaß sich in den Hirntrakten festzubeißen, wenn man ihm zu viel Raum und Bedeutung beimaß. Warum hatte er plötzlich eine Frisur die aussieht wie ein Lampenschirm? Als hätte man einen großen, tiefen Topf auf seinen Kopf gesetzt und mit einem Schwung die übersetehenden Haare abgesäbelt. Ergebnis davon halt: Zack! Lampenschirm! Warum trägt er plötzlich eine Feinrippunterhose? (Alles neben Boxershorts ist mähh! Weiß man doch!) Warum hatte er angefangen den Namen \"Leuchte\" zu akzeptieren (Sie oder die nannten ihn ungefragt so)? WARUM WARUM?!?!?!? 
-Bevor sich aber das pochende Fragewort zu einer handfesten, mittelschweren Sinnkrise entwickelte, öffnete sich eine Tür in einer der flimmerweißen Raumwände, deren Linien Leuchte null gesehen hatte. Ein geladener, fleischgewordener Elektrodraht von Person kam hindurch gestakst. Es klackte bei jedem Auftreten der Absätze.
-In samtgrünen Kostüm. Rock, Jackett und ein papierbootähnlich anmutendes Hütchen auf dem stramm zusammengebundenen, dunkelrindenbraunen Haarschopf.
--J. Filin- stand auf einem kleinen, eiweißfarbenen Schild. Knapp über dem Bereich wo vermutlich ein Herz schlug. Madame Filin musterte Leuchte kühl. In ihren Pupillen schien Nebel eingeschlossen. Aber nicht dieser feuchte Wiesennebel den man über Grünflächen antraf, nein. Wie Nebel der schwer und drückend über Gewässern lag. Ihm kam es so vor, als würde sie ein Zuchtier begutachten. Überprüfte sie seine Waden? 
-\"Freut mich Sie kennen zu lernen Herr Leuchte. Folgen Sie mir bitte.\" Beim Klang ihrer Stimme musste Leuchte an eine nachtschwarze Katze, die sich genüßlich streckt, denken. Er folgte. Hinter dem Durchgang nur weiß. In alle Richtungen. Seine Augen fanden keine Grenzen oder Wände. Es schien hier keine zu geben. Waren Madame Filin und er ins \"Freie\" getreten? Überall wohin sein Blick schweifte war es weiß.  Und direkt vor Ihnen, Stehlampen. Ein schlechter Witz oder? In allen erdenklichen Formen und Größen, aber ohne Stromkabel. Sie leuchteten ohne Stromzufuhr. Wie? 
-\"Was ist das hier? Das Lampenparadies?\" Madame Filin schwieg. Auch deren Anzahl schien kein Ende zu haben. Soweit sein Blick reichte standen Lampen. Ab und an erhöht in der \"Ferne\", was die Vermutung weckte in einer hügeligen Gegend zu sein. Leichtes Klappern und Knacken schwirrte durch die Leere. War das hier eine unbegrenzte, hügelige, raumlose, weiße Landschaft oder ein grenzen- und kantenloser, weißer, landschaftlicher Raum? In unregelmäßigen Abständen erklangen mal lautere, mal leisere Knaller. Da brannten Glühbirnen durch. Ein vertrautes Geräusch. \" Hier wartet Ihre Beschäftigung Herr Leuchte.\"
-\"Wieso ausgerechnet ich? Warum hier?\", quakte Leuchte.
-\"Sinieren und Karma.\", erwiderte Madame Filin süffisant. \"Ich verstehe nicht?\" \"Sie sinieren gerne Herr Leuchte. Eine zweckdienliche Eigeneheit, die für Ihre kommende Aufgabe von unschätzbaren Wert ist. Sich seinen Gedanken hinzugeben, kann einem bei so manch unsäglicher Aufgabe  ein Trost, als auch eine Hilfe sein. Und das Sie hier gelandet sind wo Sie  sind würde ich schlicht Karma zuschreiben. Aber genug der Kleinlichkeiten. Ihre Aufgabe erledigt sich nicht von selbst.\" Sie stökelte los, er latschte hinterher. Ihre Schritte bekamen etwas tritzendes. Sie gingen über \"tapezierten\" Boden. Es waren nicht die winzigsten Unebenheiten oder Steinchen zu sehen. Nicht einmal Sandkörner oder Staub. Beim Lampenwald angelangt, erkannte Leuchte einen \"Weg\" der hineinführte. Es gab einen schmalen durchgehenden Bereich auf dem keine Lampen standen. Der Weg gabelte sich auch in Sichtweite. Unterschiedlichstes lag unter den Lampen. Spielzeug, Kleidung, Bücher, Elektrogedöns und was man sich nicht hätte ausenken können. 
-Unter der nächstbesten Stehlampe lag ein zerrupfter, kleiner Plüschesel, eine Kindersocke mit einer Biene drauf, drei Patronen und ein Hammer. Unterm Licht daneben nur ein löchriges Tshirt, vermutlich größe M, mit dem gedruckten Wort \"Cool\" darauf. 
-Unter manchen lag mehr unter anderen weniger. Scheinbar unbedeutendes, aber ab und an auch Geldscheine oder an einer Stelle sogar ein Goldbarren. Weiterhin knallte es auch immer wieder aus unterschiedlichen Richtungen. Mal näher mal weiter entfernt. 
-Vereinzelte, verdunkelte Schirme fielen häufiger auf, sobald er den ersten entdeckt hatte. Was hatte das alles zu bedeuten? \"Und jetzt?\" \"Jetzt dürfen Sie beginnen. Sinieren nicht vergessen. Meine Zeit ist vorbei.\" Bevor Leuchte jedoch energischer nachfragen konnte, worin seine Aufgabe nun eigentlich bestand war Frau Filin verschwunden. Geräuschlos verpufft.
-Was sollte das? Die Tür durch die die Tante ihn gebracht hatte war auch verschwunden. Scheinbar war der Durchgang auch aus dem Nichts entstanden. Er sah wider Erwarten nur weiß wo er herkam. Nicht der Ansatz eines Reimes wollte sich durch die Windungen seines Frontallappens  pressen. Was sollte er jetzt machen? Seine Augen schielten fragend in alle toten Winkel seines Blickfeldes, in der Hoffnung eine wedelnde Lösung zu finden. Nichts. Plötzlich ein stärker werdendes Surren hinterm Schirm links von Ihm, gefolgt von einem knappen, stumpfen Knall. Das Licht war aus. Seine Aufmerksamkeit erlangte unausweichich die Schnur zum Anknipsen der Lampe.
-Bewegungslos hing sie da. Je länger Leuchte starrte, desto verführerischer wurde sein Drang daran zu ziehen. Am Lampenfuß lag ein Messer mit roten Flecken, ein Häufchen Karteikarten mit unleserlichen Worten drauf und eine Silberkette mit kleinem Kreuz dran. 
-Seine Hand umschloss die Schnur und zog. Es klickte leise.
-
-
-
-
-"
-
-[node name="Mirror" type="Sprite2D" parent="."]
+[node name="Mirror" type="Area2D" parent="."]
 position = Vector2(566.5, 324.25)
+
+[node name="Frame" type="Sprite2D" parent="Mirror"]
 scale = Vector2(0.876923, 0.931851)
 texture = ExtResource("2_ohxd3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mirror"]
+shape = SubResource("RectangleShape2D_bqkju")
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ForwardButton" to="." method="_on_forward_button_pressed"]
+[connection signal="input_event" from="Mirror" to="." method="_on_mirror_input_event"]

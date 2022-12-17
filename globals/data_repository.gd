@@ -19,9 +19,41 @@ var is_data_info_loaded := false
 func _ready():
 	_reload_data_info()
 
+## Get all available names of texts in the repository.
+func get_text_names() -> Array[String]:
+	if not _data_info.has("data") or not _data_info["data"].has("texts"):
+		return []
+	var name_list = []
+	for text_name in _data_info["data"]["texts"]:
+		if text_name.contains(".txt"):
+			name_list.push_back(text_name)
+	return name_list
+
+
+func get_text(name: String):
+	if not _data_info["data"]["texts"].has(name):
+		printerr("DataRepository: No text named %s exists." % name);
+		return null
+	
+	var error = $HTTPRequest.request(_data_info["data"]["texts"][name]["path"])
+	var response = await $HTTPRequest.request_completed 
+	if error != OK:
+		return null 
+	
+	var body = response[3] as PackedByteArray
+	return body.get_string_from_utf8()
+
+
+## Get web path for text name
+func get_text_path(name: String) -> String:
+	if not _data_info["data"]["texts"].has(name):
+		printerr("DataRepository: No text named %s exists." % name);
+		return ""
+	return _data_info["data"]["texts"][name]["path"]
+
 
 ## Get all available names of images in the repository.
-func get_image_names() -> Array:
+func get_image_names() -> Array[String]:
 	# Our AWS bucket is setup with the folder /data/images
 	if not _data_info.has("data") or not _data_info["data"].has("images"):
 		return []
@@ -69,8 +101,6 @@ func get_image(name: String):
 		_: 
 			printerr("DataRepository: Unsupported image type '%s' for image '%s'" % [image_type, name])
 			error = FAILED
-	if error != OK:
-		return null
 	return image
 
 
@@ -139,7 +169,7 @@ func _parse_contents(parser: XMLParser):
 
 func _create_data_info_entry(key: String):
 	var key_parts := key.split("/")
-	var info_to_add = {"path": "%s/%s" % [base_url, key], "size": -1}
+	var info_to_add = {"path": "%s/%s" % [base_url, key.uri_encode()], "size": -1}
 	var reference_dict := _data_info
 	for i in key_parts.size():
 		var part := key_parts[i]
