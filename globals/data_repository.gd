@@ -49,7 +49,10 @@ func get_text_path(name: String) -> String:
 	if not _data_info["data"]["texts"].has(name):
 		printerr("DataRepository: No text named %s exists." % name);
 		return ""
-	return _data_info["data"]["texts"][name]["path"]
+	var html_path: String = _data_info["data"]["texts"][name]["path"]
+	var suffix_index = html_path.rfind(".")
+	html_path = html_path.substr(0, suffix_index) + ".html"
+	return html_path
 
 
 ## Get all available names of images in the repository.
