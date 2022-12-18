@@ -42,7 +42,7 @@ func _on_GrabArea_input_event(viewport, event, shape_idx):
 			_is_dragged = true
 			_mouse_mode = Input.mouse_mode
 			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-			_drag_start_position = event.global_position
+			_drag_start_position = event.position
 
 
 func _wiggle(): 
@@ -63,7 +63,6 @@ func _rotate_handle():
 		GlobalAudio.play_clack_1()
 		_is_dragged = false
 		_is_snapping_back = true
-		Input.warp_mouse(_drag_start_position)
 		Input.mouse_mode = _mouse_mode
 		emit_signal("triggered", Vector2.RIGHT if sign(delta_x) > 0 else Vector2.LEFT)
 		var snap_back_tween := create_tween()
