@@ -226,7 +226,6 @@ metadata/_edit_lock_ = true
 
 [node name="StartIndicator" parent="Indicators" instance=ExtResource("4_lwtcx")]
 position = Vector2(372, 981)
-map_position = 0
 
 [node name="CollisionShape2D" parent="Indicators/StartIndicator" index="0"]
 position = Vector2(0, -75.5)
